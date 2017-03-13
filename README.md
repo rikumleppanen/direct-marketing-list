@@ -1,3 +1,3 @@
 # direct-marketing-list
 
-jotain kivaa
+Tuntikirjanpito (https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/tuntikirjanpito.md)
