@@ -1,4 +1,6 @@
 # direct-marketing-list
 
+[Description](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/description.md)
+
 [Tuntikirjanpito](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/tuntikirjanpito.md)
-[Pit-report](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/pit-report/201703131725/index.html)
+
