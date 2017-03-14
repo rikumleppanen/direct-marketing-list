@@ -16,7 +16,7 @@ __Users: Random Users who participate for lottery, system and b2c-people__
 
 __Random user__
 - can add his/her contact info: email and/or phone number with corresponding marketing consent
-- (maybe later: can delist himself of herself from the list, thus he or she is transferred to suppression list.)
+- (__maybe later:__ can delist himself or herself from the list, thus he or she is transferred to suppression list.)
 
 __System__
 - validates the contact data given by a random user
