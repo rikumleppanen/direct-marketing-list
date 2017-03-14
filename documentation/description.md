@@ -22,9 +22,10 @@ __System__
 - compares the contact data with the existing data
 - adds a new contact data if the data cannot be matched by email or phone number to the existing contact else updates the existing data with the fresh data
 - tracks the history of existing contacts and the dates and mediums of marketing consent individually with timestamps and expiry dates
+- if the individual consent is expired, the contact cannot be used in active marketing campaigns but if the contact gives his or her information again, the consent is again valid for the next 2 years.
 
 __B2C-people__
-- can obtain a report of the amount of rows in the marketing list, 
+- can obtain a report of the amount of rows in the marketing list by medium, 
 - can sort the lists by the most frequently updated contacts 
 - can obtain a list of update history of each contact.
 
