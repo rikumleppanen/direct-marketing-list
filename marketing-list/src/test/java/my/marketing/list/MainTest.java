@@ -37,26 +37,12 @@ public class MainTest {
     public void tearDown() {
     }
 
-//    /**
-//     * Test of main method, of class Main.
-//     */
-//    @Test
-//    public void testMain() {
-//        System.out.println("main");
-//        String[] args = null;
-//        Main.main(args);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
 
-    /**
-     * Test of hello method, of class Main.
-     */
-    @Test
-    public void testadd() {
-        int result = Main.add(1, 1);
-        assertEquals(2, result);
-    }
+//    @Test
+//    public void testadd() {
+//        int result = Main.add(1, 1);
+//        assertEquals(2, result);
+//    }
 
 
 }
