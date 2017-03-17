@@ -6,4 +6,5 @@ Päivä | Tunnit | Kuvaus
 14.3.2017 | 2h | Suunnittelua
 15.3.2017 | 5h | Ydintoiminnallisuuksien hahmottelua; luokat ja siivouskäsittelyt
 16.3.2017 | 5h | Ydintoiminnallisuuksien jatkamista; datan luokittelu- ja lajittelukäsittelyitä
+17.3.2017 | 2h | Ydintoiminnallisuuksien jatkoa; datan vertailukäsittelyä
 ... | ... | ...
