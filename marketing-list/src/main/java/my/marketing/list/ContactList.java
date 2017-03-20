@@ -26,10 +26,34 @@ public class ContactList {
 
         }
     }
+
+    public void cleanAndClassify(List<Contact> list) {
+        for (Contact item : list) {
+            if (item.isEmail() == true) {
+                if (item.isValidEmailAddress() == true) {
+                    item.setType(Type.email);
+                } else {
+                    item.setType(Type.unknown);
+                }
+            } else {
+                if (item.inNumberFormat() == true) {
+                    item.setType(Type.phone);
+                } else {
+                    item.emailClean();
+                    if (item.inNumberFormat() == true) {
+                        item.setType(Type.phone);
+                    } else {
+                        item.setType(Type.foreign);
+                    }
+                }
+            }
+        }
+    }
+
     public boolean isContactOnTheList(Contact contact) {
-        for(Integer key : mappi.keySet()) {
-            for(Contact one : mappi.get(key)) {
-                if(one.getRow().equals(contact.getRow())) {
+        for (Integer key : mappi.keySet()) {
+            for (Contact one : mappi.get(key)) {
+                if (one.getRow().equals(contact.getRow())) {
                     return true;
                 }
             }
@@ -37,5 +61,3 @@ public class ContactList {
         return false;
     }
 }
-
-

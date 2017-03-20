@@ -23,10 +23,10 @@ public class CustomerList {
     }
 
     public void updateExistingCustomer(Customer customer, String row, Type type) {
-        if (type == Type.phone && customer.getNumber() == null) {
+        if (type == Type.phone && customer.getNumber() == "") {
             setNumber(customer, row);
         }
-        if (type == Type.email && customer.getEmail() == null) {
+        if (type == Type.email && customer.getEmail() == "") {
             setEmail(customer, row);
         }
     }
@@ -41,23 +41,32 @@ public class CustomerList {
     }
 
 //    JÄIN TÄHÄN VERTAILUJA Varten tarvittaneen hashcodet ja object equal-vertailut?
-//   public boolean existsCustomerB(String row) {
-//        for (Customer one : custolist) {
-//            if ((one.getEmail() != null || one.getNumber() != null) && (one.getEmail().equals(row) == true || one.getNumber().equals(row) == true)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//
-//    public boolean isCustomer(String row) {
-//        for (Customer one : custolist) {
-//            if (one.getEmail().equals(row) || one.getNumber().equals(row)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+    public boolean existsCustomerB(String row) {
+        for (Customer one : custolist) {
+            if ((one.getEmail() != null || one.getNumber() != null) && (one.getEmail().equals(row) == true || one.getNumber().equals(row) == true)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean customerIsCustomer(String row) {
+        for (Customer one : custolist) {
+            if (one.getEmail().equals(row) || one.getNumber().equals(row)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean rowIsCustomer(String row) {
+        for (Customer one : custolist) {
+            if (one.getEmail().equals(row) || one.getNumber().equals(row)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public boolean existsCustomer(int id) {
         for (Customer one : custolist) {
@@ -104,7 +113,7 @@ public class CustomerList {
 
     public void print() {
         for (Customer one : custolist) {
-            System.out.println(one.getNumber() + " " + one.getEmail());
+            System.out.println(one.getNumber() + " " + one.getEmail() + one.getID());
         }
     }
 }
