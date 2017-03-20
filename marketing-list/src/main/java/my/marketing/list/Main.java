@@ -27,7 +27,7 @@ public class Main {
         //
         contactsListOne.cleanAndClassify(lista);
         
-        //lajittelu; vastaa siis ContactListille vientiä
+        //lajittelu; vastaa siis ContactListille vientiä; tästä luovutaan pian
         for (Contact item : lista) {
             if (!mappi.containsKey(item.getInsertid())) {
                 mappi.put(item.getInsertid(), new ArrayList<>());
@@ -36,7 +36,7 @@ public class Main {
                 mappi.get(item.getInsertid()).add(item);
             }
         }
-        //vertailu     
+        //vertailu; tässä pähkinä
 
         customers.addNewCustomer("0407378716", Type.phone, 45);
 

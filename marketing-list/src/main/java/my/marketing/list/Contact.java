@@ -33,7 +33,7 @@ public class Contact {
         return false;
     }
 
-    public void emailClean() {
+    public void numberClean() {
         if (this.row.contains(" ")) {
             setRow(this.row.replace(" ", ""));
         }

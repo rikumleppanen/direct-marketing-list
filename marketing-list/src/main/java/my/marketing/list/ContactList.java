@@ -39,7 +39,7 @@ public class ContactList {
                 if (item.inNumberFormat() == true) {
                     item.setType(Type.phone);
                 } else {
-                    item.emailClean();
+                    item.numberClean();
                     if (item.inNumberFormat() == true) {
                         item.setType(Type.phone);
                     } else {
@@ -60,4 +60,21 @@ public class ContactList {
         }
         return false;
     }
+
+    public Contact getContact(String row) {
+        for (Integer key : mappi.keySet()) {
+            for (Contact one : mappi.get(key)) {
+                if (one.getRow().equals(row)) {
+                    return one;
+                }
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
 }
