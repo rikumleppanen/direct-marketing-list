@@ -88,4 +88,12 @@ public class ContactList {
     public String toString() {
         return this.name;
     }
+
+    public void print() {
+        for (Integer key : mappi.keySet()) {
+            for (Contact row : mappi.get(key)) {
+                System.out.println(row.hashCode());
+            }
+        }
+    }
 }

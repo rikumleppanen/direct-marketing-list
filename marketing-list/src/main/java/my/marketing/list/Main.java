@@ -21,6 +21,7 @@ public class Main {
         lista.add(new Contact("358401234567", 6));
         lista.add(new Contact("0407378716", 7));
         lista.add(new Contact("riku@rikunauski.fi", 7));
+        lista.add(new Contact("salainen@hikipaja.fi", 8));
         //lisätään koetapaukset arvonta-listalle
         contactsListOne.addContactToList(lista);
         //puhdistaa ja luokittelee
@@ -28,27 +29,20 @@ public class Main {
 
         //luodaan kokeeksi olemassa olevia testiasiakkaita
         customers.addNewCustomer("0407378716", Type.phone, 45);
+        customers.addNewCustomer("0504561234", Type.phone, 101);
+        customers.updateExistingCustomer(customers.getCustomer(101), "ahakutti@hotmail.com", Type.email);
 
         //contactien vienti asiakkaiksi - ei vielä vertaile olemassaoleviin
         System.out.println("xxxxx");
         for (Integer key : contactsListOne.keySet()) {
-            int n = contactsListOne.get(key).size();
-            if (n == 1) {
-                Contact two = contactsListOne.getContact(key, 0);
-                customers.addNewCustomer(two.getRow(), two.getType(), two.getInsertid());
-            } else {
-                for (int i = 0; i < n; i++) {
-                    Contact one = contactsListOne.getContact(key, i);
-                    if (i == 0) {
-                        customers.addNewCustomer(one.getRow(), one.getType(), one.getInsertid());
-                    }
-                    customers.updateExistingCustomer(customers.getCustomer(one.getInsertid()), one.getRow(), one.getType());
-                }
-            }
+
+            customers.sortAndCreate2(key, contactsListOne);
+
         }
 
         customers.print();
         System.out.println("xxxxx");
+        contactsListOne.print();
 
     }
 }

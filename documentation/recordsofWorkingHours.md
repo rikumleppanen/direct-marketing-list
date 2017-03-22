@@ -9,5 +9,5 @@ Day | Hours | Description
 17.3.2017 | 2h | Drafting of core functionalities; data list comparisons
 20.3.2017 | 3h | Creating a first set of tests to Contact, ContactList and Customer classes
 21.3.2017 | 3h | Drafting the core functionalities; data list comparisons
-22.3.2017 | 1h | Creating Class Diagram and updating Description to meet the standards of deadline 2
+22.3.2017 | 5h | Creating Class Diagram and creating/coding data list comparisons
 ... | ... | ...

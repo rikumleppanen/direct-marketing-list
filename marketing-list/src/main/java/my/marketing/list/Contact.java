@@ -1,5 +1,7 @@
 package my.marketing.list;
 
+import java.util.Objects;
+
 public class Contact {
 
     private String row;
@@ -79,6 +81,48 @@ public class Contact {
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    @Override
+    public int hashCode() {
+        if(this.type == Type.email) {
+            return hashCodeEmail();
+        } 
+        if(this.type == Type.phone) {
+            return hashCodeNumber();
+        }
+        return 0;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Contact other = (Contact) obj;
+        if (!Objects.equals(this.row, other.row)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public int hashCodeEmail() {
+        int hash = 5;
+        hash = 43 * Objects.hashCode(this.row);
+        return hash;
+    }
+
+    public int hashCodeNumber() {
+        int hash = 3;
+        hash = 71 * Objects.hashCode(this.row);
+        return hash;
     }
 
 }
