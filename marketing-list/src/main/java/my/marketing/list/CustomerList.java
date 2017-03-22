@@ -56,7 +56,7 @@ public class CustomerList {
         } else if (eye.isSameEmail() == true) {
             //sp:t on samat mutta eri puhelinnumerot
             //eye.getCustomer().setID(-10);
-            
+
         } else if (eye.isSameNumber() == true) {
             //numerot samat mutta eri sp:t
             eye.getCustomer().setID(-10);
