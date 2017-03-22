@@ -1,4 +1,4 @@
-![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/Class%20Diagram.png "Class Diagram")
+# Description
 
 __Topic:__ The purpose of my project is to generate a direct marketing list(s) of contacts who have given an active marketing consent to participate in marketing campaigns. If the customer gives an email address he or she allows emails to be sent during the next two years. There are email, phone, text message and direct home address consents which may have each their own lifespan. In order to limit the case I am going to focus on application logic of 
 
@@ -13,6 +13,8 @@ __Topic:__ The purpose of my project is to generate a direct marketing list(s) o
 5) manage the latest marketing consent of every active contact separately. 
 
 To limit my case further I focus on private customers who have given their emails and/or phone numbers. It is possible that customers have given their name and home address as well, but that is not compulsory in order to maintain a list of phone numbers and emails with active marketing consent.
+__Class Diagram__
+![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/Class%20Diagram.png "Class Diagram")
 
 __Users: Random Users who participate for lottery, system and b2c-people__
 
