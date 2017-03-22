@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class ContactList {
 
@@ -23,7 +24,6 @@ public class ContactList {
             } else {
                 mappi.get(item.getInsertid()).add(item);
             }
-
         }
     }
 
@@ -72,9 +72,20 @@ public class ContactList {
         return null;
     }
 
+    public Set<Integer> keySet() {
+        return mappi.keySet();
+    }
+
+    public List<Contact> get(Integer key) {
+        return mappi.get(key);
+    }
+
+    public Contact getContact(Integer key, Integer i) {
+        return mappi.get(key).get(i);
+    }
+
     @Override
     public String toString() {
         return this.name;
     }
-
 }

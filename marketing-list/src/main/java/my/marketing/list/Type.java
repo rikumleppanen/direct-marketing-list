@@ -1,5 +1,5 @@
 package my.marketing.list;
 
 public enum Type {
-    email, phone, direct, sms, foreign, unknown
+    email, phone, foreign, unknown
 }
