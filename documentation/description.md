@@ -1,3 +1,5 @@
+![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/Class%20Diagram.png "Class Diagram")
+
 __Topic:__ The purpose of my project is to generate a direct marketing list(s) of contacts who have given an active marketing consent to participate in marketing campaigns. If the customer gives an email address he or she allows emails to be sent during the next two years. There are email, phone, text message and direct home address consents which may have each their own lifespan. In order to limit the case I am going to focus on application logic of 
 
 1) receiving customer contact data, 
