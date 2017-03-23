@@ -16,7 +16,7 @@ To limit my case further I focus on private customers who have given their email
 
 __Class Diagram__
 
-![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/Class%20Diagram.png "Class Diagram")
+![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/Class%20Diagram1.png "Class Diagram")
 
 __Users: Random Users who participate for lottery, system and b2c-people__
 
