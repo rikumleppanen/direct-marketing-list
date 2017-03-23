@@ -48,6 +48,15 @@ public class CustomerList {
         }
         return null;
     }
+    
+    public List<Consent> getConsentList(Customer cu) {
+        for(Customer one : custolist) {
+            if(one.equals(cu)) {
+                return one.getConsentList();
+            }
+        }
+        return null;
+    }
 
     public void sortAndCreate2(Integer key, ContactList list) {
         StateKeeper eye = searchAndLabel(key, list);
@@ -143,7 +152,10 @@ public class CustomerList {
 
     public void print() {
         for (Customer one : custolist) {
-            System.out.println(one.getNumber() + " " + one.getEmail() + " " + one.getID() + " " + one.hashCodeEmail() + " " + one.hashCodeNumber());
+            //System.out.println(one.getNumber() + " " + one.getEmail() + " " + one.getID() + " " + one.hashCodeEmail() + " " + one.hashCodeNumber());
+            for(Consent con : getConsentList(one)) {
+                System.out.println(con.getRow() + " " + con.getType() +" "+ con.getTimestamp());
+            }
         }
     }
 }

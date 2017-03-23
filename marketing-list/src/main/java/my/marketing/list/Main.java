@@ -43,6 +43,8 @@ public class Main {
         customers.print();
         System.out.println("xxxxx");
         contactsListOne.print();
+        Consent lupa = new Consent("01023", Type.phone);
+        System.out.println(lupa.getTimestamp());
 
     }
 }
