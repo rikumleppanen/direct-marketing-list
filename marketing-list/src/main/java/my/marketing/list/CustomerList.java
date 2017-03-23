@@ -48,10 +48,10 @@ public class CustomerList {
         }
         return null;
     }
-    
+
     public List<Consent> getConsentList(Customer cu) {
-        for(Customer one : custolist) {
-            if(one.equals(cu)) {
+        for (Customer one : custolist) {
+            if (one.equals(cu)) {
                 return one.getConsentList();
             }
         }
@@ -62,9 +62,10 @@ public class CustomerList {
         StateKeeper eye = searchAndLabel(key, list);
         if (eye.isIdentical() == true) {
             //update
+            eye.getCustomer().setID(-30);
         } else if (eye.isSameEmail() == true) {
             //sp:t on samat mutta eri puhelinnumerot
-            //eye.getCustomer().setID(-10);
+            eye.getCustomer().setID(-20);
 
         } else if (eye.isSameNumber() == true) {
             //numerot samat mutta eri sp:t
@@ -153,8 +154,8 @@ public class CustomerList {
     public void print() {
         for (Customer one : custolist) {
             //System.out.println(one.getNumber() + " " + one.getEmail() + " " + one.getID() + " " + one.hashCodeEmail() + " " + one.hashCodeNumber());
-            for(Consent con : getConsentList(one)) {
-                System.out.println(con.getRow() + " " + con.getType() +" "+ con.getTimestamp());
+            for (Consent con : getConsentList(one)) {
+                System.out.println(con.getRow() + " " + con.getType() + " " + con.getTimestamp());
             }
         }
     }

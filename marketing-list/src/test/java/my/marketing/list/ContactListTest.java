@@ -46,10 +46,24 @@ public class ContactListTest {
 
         assertEquals(Type.email, channel.getContact("riku@riku.fi").getType());
         assertEquals(Type.phone, channel.getContact("0402202").getType());
+        assertEquals(Type.phone, channel.getContact("0504561234").getType());
         assertEquals(Type.foreign, channel.getContact("04001234567").getType());
         assertEquals(Type.unknown, channel.getContact("testemail@helsinki").getType());
         assertEquals(Type.foreign, channel.getContact("+443431234567").getType());
         assertEquals(Type.foreign, channel.getContact("+44343123oho4567000").getType());
 
+    }
+    
+    @Test
+    public void getContactTest() {
+        assertEquals("testemail@helsinki",channel.getContact("testemail@helsinki").getRow());
+        assertEquals("091234",channel.getContact("091234").getRow());
+    }
+    
+    @Test
+    public void getterTests() {
+        assertTrue(channel.keySet() !=null);
+        assertEquals(contacts.get(4).hashCode(),channel.get(4).get(0).hashCode());
+        assertEquals(contacts.get(4),channel.getContact(4,0));
     }
 }

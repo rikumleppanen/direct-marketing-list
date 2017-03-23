@@ -50,17 +50,6 @@ public class ContactList {
         }
     }
 
-    public boolean isContactOnTheList(Contact contact) {
-        for (Integer key : mappi.keySet()) {
-            for (Contact one : mappi.get(key)) {
-                if (one.getRow().equals(contact.getRow())) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     public Contact getContact(String row) {
         for (Integer key : mappi.keySet()) {
             for (Contact one : mappi.get(key)) {

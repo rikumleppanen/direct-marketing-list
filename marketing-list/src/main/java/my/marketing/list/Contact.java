@@ -85,10 +85,10 @@ public class Contact {
 
     @Override
     public int hashCode() {
-        if(this.type == Type.email) {
+        if (this.type == Type.email) {
             return hashCodeEmail();
-        } 
-        if(this.type == Type.phone) {
+        }
+        if (this.type == Type.phone) {
             return hashCodeNumber();
         }
         return 0;

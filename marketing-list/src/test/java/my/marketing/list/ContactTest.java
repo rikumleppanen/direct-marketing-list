@@ -67,12 +67,20 @@ public class ContactTest {
         Contact hupu = new Contact("+358-50-456 1234", 4);
         Contact lupu = new Contact("(358)-0400 123 4567", 5);
         Contact tupu = new Contact("+44(343)-123 4567", 6);
+        Contact tipi = new Contact("3580456780",7);
+        Contact tipu  = new Contact("35890456780",8);
+        
         hupu.numberClean();
         lupu.numberClean();
         tupu.numberClean();
+        tipi.numberClean();
+        tipu.numberClean();
+        
         assertEquals("0504561234", hupu.getRow());
         assertEquals("04001234567", lupu.getRow());
         assertEquals("+443431234567", tupu.getRow());
+        assertEquals("0456780",tipi.getRow());
+        assertEquals("090456780",tipu.getRow());
     }
 
     @Test
