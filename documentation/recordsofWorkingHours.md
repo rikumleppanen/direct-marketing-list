@@ -10,4 +10,6 @@ Day | Hours | Description
 20.3.2017 | 3h | Creating a first set of tests to Contact, ContactList and Customer classes
 21.3.2017 | 3h | Drafting the core functionalities; data list comparisons
 22.3.2017 | 5h | Creating Class Diagram and creating/coding data list comparisons
+23.3.2017 | 5h | Updating Class Diagram and creating more tests and coding Consent class
+25.3.2017 | 1h | Creating FileReader and first tests for FileReader
 ... | ... | ...

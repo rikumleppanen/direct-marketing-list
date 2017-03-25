@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 6,
+      <title>File: 8,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -117,6 +117,34 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#my.marketing.list.CustomerList.java">my/marketing/list/CustomerList.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#my.marketing.list.StateKeeper.java">my/marketing/list/StateKeeper.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#my.marketing.list.Consent.java">my/marketing/list/Consent.java</a>
                 </td>
                 <td>
                   0

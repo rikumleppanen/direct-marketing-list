@@ -73,6 +73,10 @@ public class ContactList {
         return mappi.get(key).get(i);
     }
 
+    public String getNameOfContactList() {
+        return this.name;
+    }
+
     @Override
     public String toString() {
         return this.name;
