@@ -151,6 +151,16 @@ public class CustomerList {
         one.setNumber(row);
     }
 
+    public List<Consent> getAllConsentsList() {
+        List<Consent> cons = new ArrayList<>();
+        for (Customer one : custolist) {
+            for (Consent con : getConsentList(one)) {
+                cons.add(con);
+            }
+        }
+        return cons;
+    }
+
     public void print() {
         for (Customer one : custolist) {
             //System.out.println(one.getNumber() + " " + one.getEmail() + " " + one.getID() + " " + one.hashCodeEmail() + " " + one.hashCodeNumber());
