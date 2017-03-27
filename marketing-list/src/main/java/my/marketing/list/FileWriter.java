@@ -3,6 +3,8 @@ package my.marketing.list;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class FileWriter {
 
@@ -25,7 +27,7 @@ public class FileWriter {
                 write.close();
 
             } catch (FileNotFoundException ex) {
-                System.out.println("File cannot be written");
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

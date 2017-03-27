@@ -44,7 +44,7 @@ public class Main {
         System.out.println("xxxxx");
         //contactsFromChannelOne.print();
         FileWriter writer = new FileWriter();
-        writer.write("result.txt", spring);
+        writer.write(spring.getName() + ".txt", spring);
         //Montako riviä tallennettiin Result-tiedostoon
         System.out.println("How many rows were saved to the " + spring.getName() + " : " + writer.getRowCount());
     }

@@ -12,5 +12,5 @@ Day | Hours | Description
 22.3.2017 | 5h | Creating Class Diagram and creating/coding data list comparisons
 23.3.2017 | 5h | Updating Class Diagram and creating more tests and coding Consent class
 25.3.2017 | 1h | Creating FileReader and first tests for FileReader
-27.3.2017 | 4h | Creating MarketingList and FileWriter Classes
+27.3.2017 | 6h | Creating MarketingList and FileWriter and more tests
 ... | ... | ...

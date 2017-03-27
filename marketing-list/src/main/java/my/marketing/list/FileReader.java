@@ -6,6 +6,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class FileReader {
 
@@ -27,7 +29,7 @@ public class FileReader {
                 countRows++;
             }
         } catch (FileNotFoundException ex) {
-            System.out.println("The file is not found!");
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

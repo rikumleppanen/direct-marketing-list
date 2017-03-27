@@ -54,7 +54,7 @@ public class MarketingList {
     public int getRows() {
         return this.list.size();
     }
-    
+
     public String getName() {
         return this.name;
     }
