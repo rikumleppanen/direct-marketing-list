@@ -47,6 +47,9 @@ public class CustomerList {
         }
         return null;
     }
+    public List<Customer> getCustomers() {
+        return this.custolist;
+    }
 
     public List<Consent> getConsentList(Customer cu) {
         for (Customer one : custolist) {
@@ -66,8 +69,9 @@ public class CustomerList {
                 Customer foundCustomer = find(key, list);
                 if (foundCustomer != null) {
                     updateExistingCustomer(getCustomer(idnum), eye.getContactRow(i).getRow(), eye.getContactRow(i).getType());
+                } else {
+                    addNewCustomer(eye.getContactRow(i).getRow(), eye.getContactRow(i).getType(), idnum);
                 }
-                addNewCustomer(eye.getContactRow(i).getRow(), eye.getContactRow(i).getType(), idnum);
             } else if (eye.getState(i) == State.notFound) {
                 int cusno = eye.getCustomer();
                 updateExistingCustomer(getCustomer(cusno), eye.getContactRow(i).getRow(), eye.getContactRow(i).getType());
@@ -169,12 +173,11 @@ public class CustomerList {
 
     }
 
-    public List<Consent> getAllConsentsList() {
+
+    public List<Consent> getAllConsentsList(Type type) {
         List<Consent> cons = new ArrayList<>();
         for (Customer one : custolist) {
-            for (Consent con : getConsentList(one)) {
-                cons.add(con);
-            }
+            cons.add(one.getMaxConsent(type));
         }
         return cons;
     }

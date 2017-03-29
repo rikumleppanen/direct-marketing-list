@@ -1,5 +1,6 @@
 package my.marketing.list;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -66,6 +67,32 @@ public class Customer {
 
     public List<Consent> getConsentList() {
         return this.consent;
+    }
+
+    public List<Consent> getConsentList(Type type) {
+        List<Consent> list = new ArrayList<>();
+        for (Consent con : consent) {
+            if (con.getType() == type) {
+                list.add(con);
+            }
+        }
+        return list;
+    }
+
+    public Consent getMaxConsent(Type type) {
+        List<Consent> list = getConsentList(type);
+        if (!list.isEmpty()) {
+            Consent chosen = list.get(0);
+            Timestamp max = chosen.getTimestamp();
+            for (int i = 0; i < list.size(); i++) {
+                if (list.get(i).getTimestamp().after(max)) {
+                    max = list.get(i).getTimestamp();
+                    chosen = list.get(i);
+                }
+            }
+            return chosen;
+        }
+        return null;
     }
 
     public void updateConsentList(String row, Type type) {

@@ -29,19 +29,19 @@ public class MarketingList {
         return earliest;
     }
 
-    public void addToCampaign(Type type, List<Consent> active) {
-        for (Consent one : active) {
-            if (one.getType() == type) {
-                if (selectActiveConsents(one) == true) {
-                    list.add(one);
-                    one.rememberMarketingList(this.name, this.created);
-                }
+    public void addToCampaign(Type type, List<Customer> customers) {
+        for (Customer one : customers) {
+            Consent chosen;
+            chosen = one.getMaxConsent(type);
+            if (selectActiveConsents(chosen) == true && chosen != null) {
+                this.list.add(chosen);
+                chosen.rememberMarketingList(this.name, this.created);
             }
         }
     }
 
     public boolean selectActiveConsents(Consent one) {
-        if (one.getTimestamp().before(created) && one.getTimestamp().after(bestafter)) {
+        if (one != null && one.getTimestamp().before(created) && one.getTimestamp().after(bestafter)) {
             return true;
         }
         return false;

@@ -54,9 +54,10 @@ public class Main {
         System.out.println("dddd");
         //Lets create a special Marketing List that will be the basis for a campaign
         MarketingList spring = new MarketingList("SpringCampaingEmail");
-        List<Consent> consents = customers.getAllConsentsList();
+        List<Consent> consents = customers.getAllConsentsList(Type.email);
         //Lets be specific and say we want to use just emails in our spring campaign
-        spring.addToCampaign(Type.email, consents);
+        List<Customer> custolist = customers.getCustomers();
+        spring.addToCampaign(Type.phone, custolist);
         spring.print();
 
         System.out.println("xxxxx");

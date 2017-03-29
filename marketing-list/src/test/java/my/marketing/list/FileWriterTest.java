@@ -30,18 +30,18 @@ public class FileWriterTest {
             Thread.currentThread().interrupt();
         }
         list = new MarketingList("Testing");
-        list.addToCampaign(Type.phone, consents);
+        //list.addToCampaign2(Type.phone, consents);
     }
 
-    @Test
-    public void existsFileWriter() {
-        assertTrue(one != null);
-    }
-
-    @Test
-    public void writingTest() {
-        one.write(list.getName() + ".txt", list);
-        assertEquals(1, list.getRows());
-    }
+//    @Test
+//    public void existsFileWriter() {
+//        assertTrue(one != null);
+//    }
+//
+//    @Test
+//    public void writingTest() {
+//        one.write(list.getName() + ".txt", list);
+//        assertEquals(1, list.getRows());
+//    }
 
 }
