@@ -63,9 +63,13 @@ public class Customer {
     public int getID() {
         return id;
     }
-    
+
     public List<Consent> getConsentList() {
         return this.consent;
+    }
+
+    public void updateConsentList(String row, Type type) {
+        consent.add(new Consent(row, type));
     }
 
     @Override

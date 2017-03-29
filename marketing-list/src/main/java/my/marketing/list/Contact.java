@@ -7,11 +7,15 @@ public class Contact {
     private String row;
     private int insertid;
     private Type type;
+    private State label;
+    private int cusno;
 
     public Contact(String row, int insertid) {
         this.row = row;
         this.insertid = insertid;
         this.type = null;
+        this.label = null;
+        this.cusno = 0;
     }
 
     public boolean isEmail() {
@@ -83,12 +87,25 @@ public class Contact {
         this.type = type;
     }
 
+    public void setState(State label) {
+        this.label = label;
+    }
+
+    public void setStateAndTagCustomer(State label, Customer one) {
+        this.label = label;
+        this.cusno = one.getID();
+    }
+
+    public State getState() {
+        return this.label;
+    }
+
     @Override
     public int hashCode() {
         if (this.type == Type.email) {
             return hashCodeEmail();
         }
-        if (this.type == Type.phone) {
+        if (this.type == Type.phone || this.type == Type.foreign) {
             return hashCodeNumber();
         }
         return 0;

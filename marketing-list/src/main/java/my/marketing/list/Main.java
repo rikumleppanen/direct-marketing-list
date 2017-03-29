@@ -8,7 +8,7 @@ public class Main {
 
         //Shall read the data from a txt file     
         FileReader just = new FileReader();
-        just.read("koe.txt");
+        just.read("koe1.txt");
         //Lets take contacts out of the FileReader
         List contacts = just.getList();
 
@@ -20,20 +20,38 @@ public class Main {
         //next we will clean and classify the contacts within ContactList
         contactsFromChannelOne.cleanAndClassify(contacts);
 
-        //Lets create some Customers that are already in the customer list to be matched with fresh contact data
+        //Lets create Customers that are already in the customer list to be matched with fresh contact data
         CustomerList customers = new CustomerList();
-        customers.addNewCustomer("0407378716", Type.phone, 45);
-        customers.addNewCustomer("0504561234", Type.phone, 101);
-        customers.updateExistingCustomer(customers.getCustomer(101), "ahakutti@hotmail.com", Type.email);
+        customers.addNewCustomer("a4@a4.fi", Type.email, 40);
+        customers.addNewCustomer("0507378716", Type.phone, 50);
+        customers.addNewCustomer("uc6@uc6.fi", Type.email, 60);
+        customers.addNewCustomer("070345678", Type.phone, 70);
+        customers.addNewCustomer("0812345673", Type.phone, 80);
+        customers.updateExistingCustomer(customers.getCustomer(80), "uc8@uc8.fi", Type.email);
+        customers.addNewCustomer("0912334342", Type.phone, 90);
+        customers.updateExistingCustomer(customers.getCustomer(90), "auc9@auc9.com", Type.email);
+        customers.addNewCustomer("102343434", Type.phone, 100);
+        customers.updateExistingCustomer(customers.getCustomer(100), "auc10@auc10.fi", Type.email);
+        customers.addNewCustomer("1111122222", Type.phone, 110);
+        customers.updateExistingCustomer(customers.getCustomer(110), "cuc11@cuc11.com", Type.email);
+        customers.addNewCustomer("0403456789", Type.phone, 120);
+        customers.updateExistingCustomer(customers.getCustomer(120), "cuc12cuc@cuc12cuc12.fi", Type.email);
+        System.out.println("ZZZZ");
 
-        //Lets sort and update/create customers by comparing customers with contact list
-        System.out.println("xxxxx");
+        //Lets give state-labels to contacts to make it easer to create and update the customers
         for (Integer key : contactsFromChannelOne.keySet()) {
-            customers.sortAndCreate2(key, contactsFromChannelOne);
+            customers.searchAndLabel(key, contactsFromChannelOne);
         }
+        //Lets create and update customers according to the contents of contact list
+        System.out.println("rrrr");
+        for (Integer key : contactsFromChannelOne.keySet()) {
+            customers.createAndUpdate(key, contactsFromChannelOne);
+        }
+        System.out.println("wwwww");
         customers.print();
-        System.out.println("xxxxx");
-
+        System.out.println("dddd");
+        //contactsFromChannelOne.print();
+        System.out.println("dddd");
         //Lets create a special Marketing List that will be the basis for a campaign
         MarketingList spring = new MarketingList("SpringCampaingEmail");
         List<Consent> consents = customers.getAllConsentsList();

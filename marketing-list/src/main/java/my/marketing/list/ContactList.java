@@ -85,7 +85,7 @@ public class ContactList {
     public void print() {
         for (Integer key : mappi.keySet()) {
             for (Contact row : mappi.get(key)) {
-                System.out.println(row.hashCode());
+                System.out.println(key + " " + row.getRow() + " " + row.getType() + " " + row.getState() + " " + row.hashCodeEmail() + " " + row.hashCodeNumber());
             }
         }
     }

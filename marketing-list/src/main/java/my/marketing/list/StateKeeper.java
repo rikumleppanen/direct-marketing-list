@@ -4,69 +4,78 @@ public class StateKeeper {
 
     private Customer customer;
     private Contact[] rows;
-    private boolean identical;
-    private boolean sameEmail;
-    private boolean sameNumber;
-    private boolean notFound;
+    private State[] labels;
 
     public StateKeeper() {
-        boolean identical = false;
-        boolean sameEmail = false;
-        boolean sameNumber = false;
-        boolean notFound = false;
     }
 
     public void setN(int n) {
         this.rows = new Contact[n];
+        this.labels = new State[n];
     }
 
-    public void set(Customer one, Contact row, int i) {
-        this.rows[i] = row;
+    public void set(Customer one, Contact row, int i, State identifier) {
         this.customer = one;
+        this.rows[i] = row;
+        this.labels[i] = identifier;
     }
 
-    public Customer getCustomer() {
-        return this.customer;
+    public void set(Contact row, int i, State identifier) {
+        this.rows[i] = row;
+        this.labels[i] = identifier;
+    }
+
+    public int getCustomer() {
+        if(this.customer != null) {
+            return this.customer.getID();
+        }
+        return 0;
     }
 
     public Contact getContactRow(int i) {
         return this.rows[i];
     }
-    
+
     public int size() {
         return this.rows.length;
     }
 
-    public void setTrueIdentical() {
-        identical = true;
+    public void setState(int i, State identifier) {
+        this.labels[i] = identifier;
     }
 
-    public void setTrueSameEmail() {
-        sameEmail = true;
+    public State getState(int i) {
+        return this.labels[i];
     }
 
-    public void setTrueSameNumber() {
-        sameNumber = true;
-    }
-
-    public void setNotFound() {
-        notFound = true;
-    }
-
-    public boolean isIdentical() {
-        return identical;
-    }
-
-    public boolean isSameEmail() {
-        return sameEmail;
-    }
-
-    public boolean isSameNumber() {
-        return sameNumber;
+    public boolean isNotAtAllFound() {
+        int k = 0;
+        for (int i = 0; i < this.labels.length; i++) {
+            if (this.labels[i] == State.notFound) {
+                k++;
+            }
+        }
+        if (k == this.labels.length) {
+            return true;
+        }
+        return false;
     }
 
     public boolean isNotFound() {
-        return notFound;
+        for (int i = 0; i < this.labels.length; i++) {
+            if (this.labels[i] == State.notFound) {
+                return true;
+            }
+        }
+        return false;
     }
 
+    public boolean isIdenticalRow() {
+        for (int i = 0; i < this.labels.length; i++) {
+            if (this.labels[i] == State.sameEmail || this.labels[i] == State.sameNumber) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

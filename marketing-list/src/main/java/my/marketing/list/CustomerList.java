@@ -22,12 +22,11 @@ public class CustomerList {
     }
 
     public void updateExistingCustomer(Customer customer, String row, Type type) {
-        if (type == Type.phone && customer.getNumber() == "") {
+        if (type == Type.phone || type == Type.foreign) {
             setNumber(customer, row);
-        } else if (type == Type.email && customer.getEmail() == "") {
+        }
+        if (type == Type.email) {
             setEmail(customer, row);
-        } else if (type == Type.foreign && customer.getNumber() == "") {
-            setNumber(customer, row);
         }
     }
 
@@ -58,67 +57,63 @@ public class CustomerList {
         return null;
     }
 
-    public void sortAndCreate2(Integer key, ContactList list) {
-        StateKeeper eye = searchAndLabel(key, list);
-        if (eye.isIdentical() == true) {
-            //update
-            eye.getCustomer().setID(-30);
-        } else if (eye.isSameEmail() == true) {
-            //sp:t on samat mutta eri puhelinnumerot
-            eye.getCustomer().setID(-20);
+    public void createAndUpdate(Integer key, ContactList list) {
+        StateKeeper eye = findState(key, list);
+        for (int i = 0; i < eye.size(); i++) {
+            //System.out.println(eye.getState(i) + " " + eye.getContactRow(i).getRow() + " " + eye.getCustomer());
+            if (eye.getCustomer() == 0) {
+                int idnum = eye.getContactRow(i).getInsertid();
+                Customer foundCustomer = find(key, list);
+                if (foundCustomer != null) {
+                    updateExistingCustomer(getCustomer(idnum), eye.getContactRow(i).getRow(), eye.getContactRow(i).getType());
+                }
+                addNewCustomer(eye.getContactRow(i).getRow(), eye.getContactRow(i).getType(), idnum);
+            } else if (eye.getState(i) == State.notFound) {
+                int cusno = eye.getCustomer();
+                updateExistingCustomer(getCustomer(cusno), eye.getContactRow(i).getRow(), eye.getContactRow(i).getType());
+            }
+        }
 
-        } else if (eye.isSameNumber() == true) {
-            //numerot samat mutta eri sp:t
-            eye.getCustomer().setID(-10);
-        } else if (eye.isNotFound() == true) {
-            //ei vastinetta, luodaan uusi asiakas
-            int idnum = eye.getContactRow(0).getInsertid();
-            addNewCustomer(eye.getContactRow(0).getRow(), eye.getContactRow(0).getType(), idnum);
-            //System.out.println(eye.getCustomer().getID());
-            if (eye.size() > 1) {
-                updateExistingCustomer(getCustomer(idnum), eye.getContactRow(1).getRow(), eye.getContactRow(1).getType());
+    }
+
+    public void searchAndLabel(Integer key, ContactList list) {
+        for (Contact row : list.get(key)) {
+            if (isEmailSame(row) != null) {
+                row.setStateAndTagCustomer(State.sameEmail, isEmailSame(row));
+            } else if (isNumberSame(row) != null) {
+                row.setStateAndTagCustomer(State.sameNumber, isNumberSame(row));
+            } else {
+                row.setState(State.notFound);
             }
         }
     }
 
-    public StateKeeper searchAndLabel(Integer key, ContactList list) {
+    public StateKeeper findState(Integer key, ContactList list) {
         StateKeeper eye = new StateKeeper();
-        for (Customer one : custolist) {
-            Iterator<Contact> iter = list.get(key).iterator();
-            int n = list.get(key).size();
-            eye.setN(n);
-            int k = 0;
-            while (iter.hasNext()) {
-                Contact row = iter.next();
-                if (row.hashCode() == one.hashCode()) {
-                    eye.set(one, row, k);
-                    eye.setTrueIdentical();
-                    k++;
-                } else if (row.hashCodeEmail() == one.hashCodeEmail()) {
-                    eye.set(one, row, k);
-                    eye.setTrueSameEmail();
-                    k++;
-                } else if (row.hashCodeNumber() == one.hashCodeNumber()) {
-                    eye.set(one, row, k);
-                    eye.setTrueSameNumber();
+        int n = list.get(key).size();
+        int k = 0;
+        eye.setN(n);
+        for (Contact row : list.get(key)) {
+            if (row.getState() == State.sameEmail) {
+                eye.set(isEmailSame(row), row, k, row.getState());
+                k++;
+            }
+            if (row.getState() == State.sameNumber) {
+                eye.set(isNumberSame(row), row, k, row.getState());
+                k++;
+            }
+            if (row.getState() == State.notFound) {
+                Customer foundCustomer = find(key, list);
+                if (foundCustomer != null) {
+                    eye.set(foundCustomer, row, k, row.getState());
                     k++;
                 } else {
-                    eye.set(one, row, k);
-                    eye.setNotFound();
+                    eye.set(row, k, row.getState());
                     k++;
                 }
             }
         }
         return eye;
-    }
-
-    public void sortAndCreate(Integer key, ContactList list, Contact row) {
-        Customer foundCustomer = find(key, list);
-        if (foundCustomer != null) {
-            updateExistingCustomer(foundCustomer, row.getRow(), row.getType());
-            foundCustomer.setID(-1); //koeluontoisesti tämä vain tehdään jatkossa lupien update
-        }
-        addNewCustomer(row.getRow(), row.getType(), row.getInsertid());
     }
 
     public Customer find(Integer key, ContactList list) {
@@ -144,11 +139,34 @@ public class CustomerList {
     }
 
     public void setEmail(Customer one, String row) {
-        one.setEmail(row);
+        if (one != null) {
+            one.setEmail(row);
+        }
     }
 
     public void setNumber(Customer one, String row) {
-        one.setNumber(row);
+        if (one != null) {
+            one.setNumber(row);
+        }
+    }
+
+    public Customer isEmailSame(Contact row) {
+        for (Customer one : custolist) {
+            if (one.hashCodeEmail() == row.hashCodeEmail()) {
+                return one;
+            }
+        }
+        return null;
+    }
+
+    public Customer isNumberSame(Contact row) {
+        for (Customer one : custolist) {
+            if (one.hashCodeNumber() == row.hashCodeNumber()) {
+                return one;
+            }
+        }
+        return null;
+
     }
 
     public List<Consent> getAllConsentsList() {
@@ -163,10 +181,10 @@ public class CustomerList {
 
     public void print() {
         for (Customer one : custolist) {
-            //System.out.println(one.getNumber() + " " + one.getEmail() + " " + one.getID() + " " + one.hashCodeEmail() + " " + one.hashCodeNumber());
-            for (Consent con : getConsentList(one)) {
-                System.out.println(con.getRow() + " " + con.getType() + " " + con.getTimestamp());
-            }
+            System.out.println(one.getNumber() + " " + one.getEmail() + " " + one.getID() + " " + one.hashCodeEmail() + " " + one.hashCodeNumber());
+//            for (Consent con : getConsentList(one)) {
+//                System.out.println(con.getRow() + " " + con.getType() + " " + con.getTimestamp());
+//            }
         }
     }
 }
