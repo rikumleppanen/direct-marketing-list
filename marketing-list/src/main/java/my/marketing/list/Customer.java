@@ -4,30 +4,34 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Customer {
 
     private String email;
     private String number;
     private List<Consent> consent;
-    private int id;
+    private UUID cusno;
+    private int insertId;
 
     public Customer() {
         this.email = "";
         this.number = "";
-        this.id = 0;
+        this.cusno = UUID.randomUUID();
+        this.insertId = 0;
         this.consent = new ArrayList<>();
     }
 
     public Customer(String email, String number) {
         this.email = email;
         this.number = number;
-        this.id = 0;
+        this.cusno = UUID.randomUUID();;
+        this.insertId = 0;
         this.consent = new ArrayList<>();
     }
 
     public Customer setID(int id) {
-        this.id = id;
+        this.insertId = id;
         return this;
     }
 
@@ -61,8 +65,12 @@ public class Customer {
         return number;
     }
 
-    public int getID() {
-        return id;
+    public UUID getCusnoId() {
+        return cusno;
+    }
+
+    public int getInsertId() {
+        return insertId;
     }
 
     public List<Consent> getConsentList() {

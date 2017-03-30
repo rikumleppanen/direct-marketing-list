@@ -58,6 +58,9 @@ public class MarketingList {
     public String getName() {
         return this.name;
     }
+    public Timestamp getCreated() {
+        return this.created;
+    }
 
     public void print() {
         for (Consent one : list) {

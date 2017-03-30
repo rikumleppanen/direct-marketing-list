@@ -1,5 +1,7 @@
 package my.marketing.list;
 
+import java.util.UUID;
+
 public class StateKeeper {
 
     private Customer customer;
@@ -25,11 +27,11 @@ public class StateKeeper {
         this.labels[i] = identifier;
     }
 
-    public int getCustomer() {
-        if(this.customer != null) {
-            return this.customer.getID();
+    public UUID getCustomer() {
+        if (this.customer != null) {
+            return this.customer.getCusnoId();
         }
-        return 0;
+        return null;
     }
 
     public Contact getContactRow(int i) {

@@ -27,15 +27,15 @@ public class Main {
         customers.addNewCustomer("uc6@uc6.fi", Type.email, 60);
         customers.addNewCustomer("070345678", Type.phone, 70);
         customers.addNewCustomer("0812345673", Type.phone, 80);
-        customers.updateExistingCustomer(customers.getCustomer(80), "uc8@uc8.fi", Type.email);
+        customers.updateExistingCustomer(customers.getCustomerInsertId(80), "uc8@uc8.fi", Type.email);
         customers.addNewCustomer("0912334342", Type.phone, 90);
-        customers.updateExistingCustomer(customers.getCustomer(90), "auc9@auc9.com", Type.email);
+        customers.updateExistingCustomer(customers.getCustomerInsertId(90), "auc9@auc9.com", Type.email);
         customers.addNewCustomer("102343434", Type.phone, 100);
-        customers.updateExistingCustomer(customers.getCustomer(100), "auc10@auc10.fi", Type.email);
+        customers.updateExistingCustomer(customers.getCustomerInsertId(100), "auc10@auc10.fi", Type.email);
         customers.addNewCustomer("1111122222", Type.phone, 110);
-        customers.updateExistingCustomer(customers.getCustomer(110), "cuc11@cuc11.com", Type.email);
+        customers.updateExistingCustomer(customers.getCustomerInsertId(110), "cuc11@cuc11.com", Type.email);
         customers.addNewCustomer("0403456789", Type.phone, 120);
-        customers.updateExistingCustomer(customers.getCustomer(120), "cuc12cuc@cuc12cuc12.fi", Type.email);
+        customers.updateExistingCustomer(customers.getCustomerInsertId(120), "cuc12cuc@cuc12cuc12.fi", Type.email);
         System.out.println("ZZZZ");
 
         //Lets give state-labels to contacts to make it easer to create and update the customers
@@ -66,5 +66,17 @@ public class Main {
         writer.write(spring.getName() + ".txt", spring);
         //Montako riviä tallennettiin Result-tiedostoon
         System.out.println("How many rows were saved to the " + spring.getName() + " : " + writer.getRowCount());
+        Consent alpha = new Consent("112", Type.phone);
+        try {
+            Thread.sleep(1000);                 //1000 milliseconds is one second.
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+        Consent beta = new Consent("3456",Type.phone);
+        System.out.println(alpha.getTimestamp().before(beta.getTimestamp()));
+        System.out.println(alpha.getTimestamp());
+        alpha.setNewTimestamp();
+        System.out.println(alpha.getTimestamp());
+        System.out.println(alpha.getTimestamp().before(beta.getTimestamp()));
     }
 }

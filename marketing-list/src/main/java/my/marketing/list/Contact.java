@@ -53,7 +53,7 @@ public class Contact {
             setRow(this.row.replace(")", ""));
         }
         if (this.row.contains("+3580")) {
-            setRow(this.row.replace("+3580", ""));
+            setRow(this.row.replace("+3580", "0"));
         }
         if (this.row.contains("+358")) {
             setRow(this.row.replace("+358", "0"));
@@ -93,7 +93,7 @@ public class Contact {
 
     public void setStateAndTagCustomer(State label, Customer one) {
         this.label = label;
-        this.cusno = one.getID();
+        this.cusno = one.getInsertId();
     }
 
     public State getState() {

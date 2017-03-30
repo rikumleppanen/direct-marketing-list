@@ -1,4 +1,3 @@
-
 package my.marketing.list;
 
 import org.junit.After;
@@ -9,29 +8,48 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ConsentTest {
-    
+
+    Consent alpha;
+    Consent beta;
+    MarketingList newey;
+
     public ConsentTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+
     @Before
     public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+        alpha = new Consent("091234", Type.phone);
+        try {
+            Thread.sleep(1000);                 //1000 milliseconds is one second.
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+        beta = new Consent("arto@arto.fi", Type.email);
+        newey = new MarketingList("EarlyBirdCampaign");
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void existsConsent() {
+        assertTrue(alpha != null);
+        assertEquals("091234", alpha.getRow());
+        assertEquals("arto@arto.fi", beta.getRow());
+        assertEquals(Type.phone, alpha.getType());
+        assertEquals(Type.email, beta.getType());
+    }
+
+    @Test
+    public void timestampTest() {
+        assertTrue(alpha.getTimestamp() != null);
+        assertEquals(true, alpha.getTimestamp().before(beta.getTimestamp()));
+        alpha.setNewTimestamp();
+        assertEquals(false, alpha.getTimestamp().before(beta.getTimestamp()));
+    }
+
+    @Test
+    public void marketingListUpdateTest() {
+        assertTrue(newey != null);
+        assertEquals("EarlyBirdCampaign", newey.getName());
+        //alpha.rememberMarketingList(newey.getName(), newey.getCreated());
+    }
+
 }

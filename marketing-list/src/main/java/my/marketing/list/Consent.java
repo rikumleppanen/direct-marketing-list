@@ -37,7 +37,7 @@ public class Consent {
     public void rememberMarketingList(String name, Timestamp date) {
         used.put(name, date);
     }
-
+    
     public void setType(Type type) {
         this.type = type;
     }

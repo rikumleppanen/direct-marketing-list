@@ -3,6 +3,7 @@ package my.marketing.list;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
 public class CustomerList {
 
@@ -39,14 +40,24 @@ public class CustomerList {
         return null;
     }
 
-    public Customer getCustomer(int id) {
+    public Customer getCustomerInsertId(int id) {
         for (Customer one : custolist) {
-            if (one.getID() == id) {
+            if (one.getInsertId() == id) {
                 return one;
             }
         }
         return null;
     }
+
+    public Customer getCustomerCusnoId(UUID id) {
+        for (Customer one : custolist) {
+            if (one.getCusnoId() == id) {
+                return one;
+            }
+        }
+        return null;
+    }
+
     public List<Customer> getCustomers() {
         return this.custolist;
     }
@@ -64,17 +75,17 @@ public class CustomerList {
         StateKeeper eye = findState(key, list);
         for (int i = 0; i < eye.size(); i++) {
             //System.out.println(eye.getState(i) + " " + eye.getContactRow(i).getRow() + " " + eye.getCustomer());
-            if (eye.getCustomer() == 0) {
+            if (eye.getCustomer() == null) {
                 int idnum = eye.getContactRow(i).getInsertid();
                 Customer foundCustomer = find(key, list);
                 if (foundCustomer != null) {
-                    updateExistingCustomer(getCustomer(idnum), eye.getContactRow(i).getRow(), eye.getContactRow(i).getType());
+                    updateExistingCustomer(getCustomerInsertId(idnum), eye.getContactRow(i).getRow(), eye.getContactRow(i).getType());
                 } else {
                     addNewCustomer(eye.getContactRow(i).getRow(), eye.getContactRow(i).getType(), idnum);
                 }
             } else if (eye.getState(i) == State.notFound) {
-                int cusno = eye.getCustomer();
-                updateExistingCustomer(getCustomer(cusno), eye.getContactRow(i).getRow(), eye.getContactRow(i).getType());
+                UUID cusno = eye.getCustomer();
+                updateExistingCustomer(getCustomerCusnoId(cusno), eye.getContactRow(i).getRow(), eye.getContactRow(i).getType());
             }
         }
 
@@ -173,7 +184,6 @@ public class CustomerList {
 
     }
 
-
     public List<Consent> getAllConsentsList(Type type) {
         List<Consent> cons = new ArrayList<>();
         for (Customer one : custolist) {
@@ -184,7 +194,7 @@ public class CustomerList {
 
     public void print() {
         for (Customer one : custolist) {
-            System.out.println(one.getNumber() + " " + one.getEmail() + " " + one.getID() + " " + one.hashCodeEmail() + " " + one.hashCodeNumber());
+            System.out.println(one.getNumber() + " " + one.getEmail() + " " + one.getInsertId() + " " + one.hashCodeEmail() + " " + one.hashCodeNumber());
 //            for (Consent con : getConsentList(one)) {
 //                System.out.println(con.getRow() + " " + con.getType() + " " + con.getTimestamp());
 //            }

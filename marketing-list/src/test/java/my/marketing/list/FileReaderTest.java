@@ -33,7 +33,7 @@ public class FileReaderTest {
     @Test
     public void readingFile() {
         one.read("koe.txt");
-        assertEquals(15, one.getNumberOfRows());
+        assertEquals(17, one.getNumberOfRows());
         assertEquals(0, two.getNumberOfRows());
     }
 
