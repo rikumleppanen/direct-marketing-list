@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi_FI" lang="fi_FI">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Main xref</title>
+<link type="text/css" rel="stylesheet" href="../../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../../apidocs/fi/marketing/list/Main.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> fi.marketing.list;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> fi.marketing.list.logic.Consent;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> fi.marketing.list.logic.lists.CustomerList;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> fi.marketing.list.logic.lists.ContactList;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> fi.marketing.list.logic.Customer;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> fi.marketing.list.logic.lists.MarketingList;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> fi.marketing.list.logic.Type;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> java.util.List;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../fi/marketing/list/Main.html">Main</a> {
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) {
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>          <em class="jxr_comment">//Shall read the data from a txt file     </em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>          <a href="../../../fi/marketing/list/FileReader.html">FileReader</a> just = <strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/FileReader.html">FileReader</a>();
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>          just.read(<span class="jxr_string">"koe1.txt"</span>);
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>          <em class="jxr_comment">//Lets take contacts out of the FileReader</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>          List contacts = just.getList();
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>          <em class="jxr_comment">//Lets create a special ContactList where individual contact rows are bundled together by insertations</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>          <a href="../../../fi/marketing/list/logic/lists/ContactList.html">ContactList</a> contactsFromChannelOne = <strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/logic/lists/ContactList.html">ContactList</a>(<span class="jxr_string">"ChannelONE"</span>);
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>          System.out.println(<span class="jxr_string">"There is "</span> + just.getNumberOfRows() + <span class="jxr_string">" rows of contact data to be put on the list "</span> + contactsFromChannelOne.getNameOfContactList());
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>          <em class="jxr_comment">//lets add all the given data to our ContactLit</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>          contactsFromChannelOne.addContactToList(contacts);
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>          <em class="jxr_comment">//next we will clean and classify the contacts within ContactList</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>          contactsFromChannelOne.cleanAndClassify(contacts);
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>          <em class="jxr_comment">//Lets create Customers that are already in the customer list to be matched with fresh contact data</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>          <a href="../../../fi/marketing/list/logic/lists/CustomerList.html">CustomerList</a> customers = <strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/logic/lists/CustomerList.html">CustomerList</a>();
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>          customers.addNewCustomer(<span class="jxr_string">"a4@a4.fi"</span>, Type.email, 40);
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>          customers.addNewCustomer(<span class="jxr_string">"0507378716"</span>, Type.phone, 50);
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>          customers.addNewCustomer(<span class="jxr_string">"uc6@uc6.fi"</span>, Type.email, 60);
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>          customers.addNewCustomer(<span class="jxr_string">"070345678"</span>, Type.phone, 70);
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>          customers.addNewCustomer(<span class="jxr_string">"0812345673"</span>, Type.phone, 80);
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>          customers.updateExistingCustomer(customers.getCustomerInsertId(80), <span class="jxr_string">"uc8@uc8.fi"</span>, Type.email);
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>          customers.addNewCustomer(<span class="jxr_string">"0912334342"</span>, Type.phone, 90);
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>          customers.updateExistingCustomer(customers.getCustomerInsertId(90), <span class="jxr_string">"auc9@auc9.com"</span>, Type.email);
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>          customers.addNewCustomer(<span class="jxr_string">"102343434"</span>, Type.phone, 100);
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>          customers.updateExistingCustomer(customers.getCustomerInsertId(100), <span class="jxr_string">"auc10@auc10.fi"</span>, Type.email);
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>          customers.addNewCustomer(<span class="jxr_string">"1111122222"</span>, Type.phone, 110);
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>          customers.updateExistingCustomer(customers.getCustomerInsertId(110), <span class="jxr_string">"cuc11@cuc11.com"</span>, Type.email);
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>          customers.addNewCustomer(<span class="jxr_string">"0403456789"</span>, Type.phone, 120);
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>          customers.updateExistingCustomer(customers.getCustomerInsertId(120), <span class="jxr_string">"cuc12cuc@cuc12cuc12.fi"</span>, Type.email);
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>          System.out.println(<span class="jxr_string">"ZZZZ"</span>);
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>          <em class="jxr_comment">//Lets give state-labels to contacts to make it easer to create and update the customers</em>
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>          <strong class="jxr_keyword">for</strong> (Integer key : contactsFromChannelOne.keySet()) {
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>              customers.searchAndLabel(key, contactsFromChannelOne);
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          }
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>          <em class="jxr_comment">//Lets create and update customers according to the contents of contact list</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>          System.out.println(<span class="jxr_string">"rrrr"</span>);
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>          <strong class="jxr_keyword">for</strong> (Integer key : contactsFromChannelOne.keySet()) {
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>              customers.createAndUpdate(key, contactsFromChannelOne);
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          }
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>          System.out.println(<span class="jxr_string">"wwwww"</span>);
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>          customers.print();
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>          System.out.println(<span class="jxr_string">"dddd"</span>);
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>          <em class="jxr_comment">//contactsFromChannelOne.print();</em>
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>          System.out.println(<span class="jxr_string">"dddd"</span>);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>          <em class="jxr_comment">//Lets create a special Marketing List that will be the basis for a campaign</em>
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          <a href="../../../fi/marketing/list/logic/lists/MarketingList.html">MarketingList</a> spring = <strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/logic/lists/MarketingList.html">MarketingList</a>(<span class="jxr_string">"SpringCampaingEmail"</span>);
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          <em class="jxr_comment">//Lets be specific and say we want to use just emails in our spring campaign</em>
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          List&lt;Customer&gt; custolist = customers.getCustomers();
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          spring.addToCampaign(Type.phone, custolist);
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          spring.print();
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          <em class="jxr_comment">//Lets transfer the SpringCampaignEmail-list to a txt</em>
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>          <a href="../../../fi/marketing/list/FileWriter.html">FileWriter</a> writer = <strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/FileWriter.html">FileWriter</a>();
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>          writer.write(spring.getName() + <span class="jxr_string">".txt"</span>, spring);
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          System.out.println(<span class="jxr_string">"How many rows were saved to the "</span> + spring.getName() + <span class="jxr_string">" : "</span> + writer.getRowCount());
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>          <em class="jxr_comment">//Testing timestamps</em>
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          <a href="../../../fi/marketing/list/logic/Consent.html">Consent</a> alpha = <strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/logic/Consent.html">Consent</a>(<span class="jxr_string">"112"</span>, Type.phone);
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>              Thread.sleep(1000);                 <em class="jxr_comment">//1000 milliseconds is one second.</em>
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>          } <strong class="jxr_keyword">catch</strong> (InterruptedException ex) {
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>              Thread.currentThread().interrupt();
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          }
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>          <a href="../../../fi/marketing/list/logic/Consent.html">Consent</a> beta = <strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/logic/Consent.html">Consent</a>(<span class="jxr_string">"3456"</span>,Type.phone);
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>          System.out.println(alpha.getTimestamp().before(beta.getTimestamp()));
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>          System.out.println(alpha.getTimestamp());
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>          alpha.setNewTimestamp();
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>          System.out.println(alpha.getTimestamp());
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>          System.out.println(alpha.getTimestamp().before(beta.getTimestamp()));
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>      }
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  }
+</pre>
+<hr/>
+<div id="footer">Copyright &#169; 2017. All rights reserved.</div>
+</body>
+</html>

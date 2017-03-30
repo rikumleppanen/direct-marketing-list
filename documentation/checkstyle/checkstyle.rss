@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#my.marketing.list.Main.java">my/marketing/list/Main.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.StateKeeper.java">fi/marketing/list/logic/StateKeeper.java</a>
                 </td>
                 <td>
                   0
@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#my.marketing.list.State.java">my/marketing/list/State.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.FileReader.java">fi/marketing/list/FileReader.java</a>
                 </td>
                 <td>
                   0
@@ -74,7 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#my.marketing.list.MarketingList.java">my/marketing/list/MarketingList.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.Contact.java">fi/marketing/list/logic/Contact.java</a>
                 </td>
                 <td>
                   0
@@ -88,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#my.marketing.list.Contact.java">my/marketing/list/Contact.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.Customer.java">fi/marketing/list/logic/Customer.java</a>
                 </td>
                 <td>
                   0
@@ -102,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#my.marketing.list.Customer.java">my/marketing/list/Customer.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.State.java">fi/marketing/list/logic/State.java</a>
                 </td>
                 <td>
                   0
@@ -116,7 +116,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#my.marketing.list.FileReader.java">my/marketing/list/FileReader.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.lists.ContactList.java">fi/marketing/list/logic/lists/ContactList.java</a>
                 </td>
                 <td>
                   0
@@ -130,7 +130,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#my.marketing.list.ContactList.java">my/marketing/list/ContactList.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.Type.java">fi/marketing/list/logic/Type.java</a>
                 </td>
                 <td>
                   0
@@ -144,7 +144,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#my.marketing.list.Type.java">my/marketing/list/Type.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.FileWriter.java">fi/marketing/list/FileWriter.java</a>
                 </td>
                 <td>
                   0
@@ -158,7 +158,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#my.marketing.list.CustomerList.java">my/marketing/list/CustomerList.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.lists.CustomerList.java">fi/marketing/list/logic/lists/CustomerList.java</a>
                 </td>
                 <td>
                   0
@@ -172,7 +172,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#my.marketing.list.StateKeeper.java">my/marketing/list/StateKeeper.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.Consent.java">fi/marketing/list/logic/Consent.java</a>
                 </td>
                 <td>
                   0
@@ -186,7 +186,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#my.marketing.list.Consent.java">my/marketing/list/Consent.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.Main.java">fi/marketing/list/Main.java</a>
                 </td>
                 <td>
                   0
@@ -200,7 +200,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#my.marketing.list.FileWriter.java">my/marketing/list/FileWriter.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.lists.MarketingList.java">fi/marketing/list/logic/lists/MarketingList.java</a>
                 </td>
                 <td>
                   0

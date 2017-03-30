@@ -1,15 +1,6 @@
 package fi.marketing.list.logic.lists;
 
-import fi.marketing.list.logic.Consent;
-import fi.marketing.list.logic.Contact;
-import fi.marketing.list.logic.Customer;
-import fi.marketing.list.logic.lists.ContactList;
-import fi.marketing.list.logic.State;
-import fi.marketing.list.logic.State;
-import fi.marketing.list.logic.Type;
-import fi.marketing.list.logic.StateKeeper;
-import fi.marketing.list.logic.StateKeeper;
-import fi.marketing.list.logic.Type;
+import fi.marketing.list.logic.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;

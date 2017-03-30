@@ -13,4 +13,7 @@ Day | Hours | Description
 23.3.2017 | 5h | Updating Class Diagram and creating more tests and coding Consent class
 25.3.2017 | 1h | Creating FileReader and first tests for FileReader
 27.3.2017 | 6h | Creating MarketingList and FileWriter and more tests
+28.3.2017 | 6h | Planning all the variations (12 use cases) of adding and updating customers 
+29.3.2017 | 6h | Coding the data list comparisons taking consideration all the variation
+30.3.2017 | 4h | Extending testing, sorting files into packages and finalized the DL3 
 ... | ... | ...
