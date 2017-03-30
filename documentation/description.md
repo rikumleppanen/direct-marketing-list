@@ -14,9 +14,14 @@ __Topic:__ The purpose of my project is to generate a direct marketing list(s) o
 
 To limit my case further I focus on private customers who have given their emails and/or phone numbers. It is possible that customers have given their name and home address as well, but that is not compulsory in order to maintain a list of phone numbers and emails with active marketing consent.
 
-__Class Diagram__
+__Class Diagram at the end of 3rd week__
+
+![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/Class%20DiagramUpD1.png "Class Diagram (Updated #1")
+
+__Class Diagram at the end of 2nd week__
 
 ![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/Class%20Diagram1.png "Class Diagram")
+
 
 __Users: Random Users who participate for lottery, system and b2c-people__
 
