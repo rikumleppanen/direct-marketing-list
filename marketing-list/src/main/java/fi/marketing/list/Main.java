@@ -6,7 +6,9 @@ import fi.marketing.list.logic.lists.ContactList;
 import fi.marketing.list.logic.Customer;
 import fi.marketing.list.logic.lists.MarketingList;
 import fi.marketing.list.logic.Type;
+import fi.marketing.list.ui.*;
 import java.util.List;
+import javax.swing.SwingUtilities;
 
 public class Main {
 
@@ -69,6 +71,9 @@ public class Main {
         FileWriter writer = new FileWriter();
         writer.write(spring.getName() + ".txt", spring);
         System.out.println("How many rows were saved to the " + spring.getName() + " : " + writer.getRowCount());
+        
+        //UI
+        SwingUtilities.invokeLater(new UserInterface());
         
         //Testing timestamps
         Consent alpha = new Consent("112", Type.phone);
