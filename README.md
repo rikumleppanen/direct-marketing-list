@@ -8,6 +8,6 @@ __Summary:__ The purpose of my project is to generate a direct marketing list(s)
 
 [Records of Working Hours](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/recordsofWorkingHours.md)
 
-[Pit Report](https://htmlpreview.github.io/?https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/pit-report/201703301300/index.html)
+[Pit Report](https://htmlpreview.github.io/?https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/pit-report/201704061407/index.html)
 
 [CheckStyle Report](https://htmlpreview.github.io/?https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/checkstyle/checkstyle.html)
