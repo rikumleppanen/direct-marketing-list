@@ -2,6 +2,12 @@ package fi.marketing.list.logic;
 
 import java.util.UUID;
 
+/**
+ * StateKeeper Class keeps record of the individual rows of Contact, because one
+ * insertation might entail several rows of information. At this point, there
+ * are max of two rows in one insertation (email and phone number) labeled in
+ * the process.
+ */
 public class StateKeeper {
 
     private Customer customer;

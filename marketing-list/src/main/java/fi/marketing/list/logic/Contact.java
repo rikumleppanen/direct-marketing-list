@@ -2,6 +2,10 @@ package fi.marketing.list.logic;
 
 import java.util.Objects;
 
+/**
+ * Contact Class provides detailed information of the row that will be typed and
+ * labeled in the process.
+ */
 public class Contact {
 
     private String row;

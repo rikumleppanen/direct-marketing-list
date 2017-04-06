@@ -4,6 +4,10 @@ import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Consent Class extends the detailed information of the individual contact row
+ * by giving a timestamp.
+ */
 public class Consent {
 
     private String row;
@@ -37,7 +41,7 @@ public class Consent {
     public void rememberMarketingList(String name, Timestamp date) {
         used.put(name, date);
     }
-    
+
     public void setType(Type type) {
         this.type = type;
     }

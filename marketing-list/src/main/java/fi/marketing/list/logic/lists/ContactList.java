@@ -8,6 +8,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * ContactList Class keeps record of the individual rows of contact data so that
+ * each key represent one insertation which might entail max of two rows of
+ * information (that is email and phone number).
+ */
 public class ContactList {
 
     private String name;

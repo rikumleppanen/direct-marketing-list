@@ -7,6 +7,11 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
+/**
+ * Customer Class provides information of the individual customer that is
+ * created via new contacts or is updated by the new information provided by the
+ * contacts.
+ */
 public class Customer {
 
     private String email;
