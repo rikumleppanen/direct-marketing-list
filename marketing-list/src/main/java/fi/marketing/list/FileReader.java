@@ -9,6 +9,10 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * FileReader produces a list where all the individual contact rows are added.
+ * It keeps record of the total number of rows as well.
+ */
 public class FileReader {
 
     private List<Contact> list;

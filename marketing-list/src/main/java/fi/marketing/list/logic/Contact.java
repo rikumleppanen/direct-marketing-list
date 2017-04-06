@@ -3,8 +3,8 @@ package fi.marketing.list.logic;
 import java.util.Objects;
 
 /**
- * Contact Class provides detailed information of the row that will be typed and
- * labeled in the process.
+ * Contacts are always single string rows of information. Thus, each of the row
+ * are cleaned and labeled with Type and State in the process.
  */
 public class Contact {
 

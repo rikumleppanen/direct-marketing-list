@@ -5,8 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Consent Class extends the detailed information of the individual contact row
- * by giving a timestamp.
+ * Consents have each their own lifespan of two years from the latest consent.
+ * One customer might have several consents and each of these have different
+ * timestamps. It is important to know where (=what campaign) and when (=when
+ * campaign was generated) the consents were used.
  */
 public class Consent {
 

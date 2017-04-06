@@ -1,19 +1,33 @@
 package fi.marketing.list.ui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
 public class UserInterface implements Runnable {
 
     private JFrame frame;
+    private static final Color GREEN = new Color(200, 255, 200);
+    private static final Color BLUE = new Color(200, 200, 255);
+    private JButton nappi;
+    private JTextField tulostusKentta;
 
+    /**
+     * UserInterface is the main building block of the UI.
+     */
     public UserInterface() {
+
     }
 
     @Override
@@ -24,27 +38,62 @@ public class UserInterface implements Runnable {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         luoKomponentit(frame.getContentPane());
+//        frame.getContentPane().add(new ColorPanel(Color.pink, 800, 80), BorderLayout.NORTH);
+//        frame.getContentPane().add(new ColorPanel(GREEN, 300, 420), BorderLayout.WEST);
+//        frame.getContentPane().add(new ColorPanel(BLUE, 500, 420), BorderLayout.CENTER);
 
+        //luoKomponentit(frame.getContentPane());
         frame.pack();
+        frame.setLocationByPlatform(true);
         frame.setVisible(true);
     }
 
     private void luoKomponentit(Container container) {
-        GridLayout layout = new GridLayout(1, 3);
-        //Edellä mainitut eivät näy ilman setLayout-komentoa, siksi oikea muoto:
-        container.setLayout(new BorderLayout());
-        
-        JButton nappi = new JButton("Pohjoinen (North)");
-        container.add(nappi, BorderLayout.NORTH);
-        container.add(new JButton("Itä (East)"), BorderLayout.EAST);
-        container.add(new JButton("Etelä (South)"), BorderLayout.SOUTH);
-        JLabel kentta = new JLabel("Länsi (West)");
-        container.add(kentta, BorderLayout.WEST);
-        container.add(new JButton("Keski (Center)"), BorderLayout.CENTER);
+        ColorPanel pink = new ColorPanel(Color.pink, 800, 80);
+        container.add(pink, BorderLayout.NORTH);
+        container.add(new ColorPanel(GREEN, 300, 420), BorderLayout.WEST);
+        container.add(new ColorPanel(BLUE, 500, 420), BorderLayout.CENTER);
+        //BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
+        nappi = new JButton("Suorita");
+        pink.add(nappi);
+        pink.add(new JButton("Testaa"));
+        pink.add(new JButton("Lähetä"));
+        tulostusKentta = new JTextField("0");
+        pink.add(tulostusKentta);
+        DashboardListener listen = new DashboardListener(tulostusKentta, nappi);
+        nappi.addActionListener(listen);
+        tulostusKentta.addActionListener(listen);
+        //container.add(tulostusKentta);
+        container.add(pink.getComponent(0));
+        //container.add(pink.getComponent(0));
 
-        container.add(new JButton("Oletuspaikka (Center)"));
-        
-        nappi.addActionListener(new DashboardListener());
+        //GridLayout overallLayout = new GridLayout(1,3);
+        //container.setLayout(new BorderLayout());
+//        BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
+//        container.setLayout(overrallLayout);
+//
+//        container.add(new JLabel("Valitse ruokavalio:"));
+//        JRadioButton liha = new JRadioButton("Liha");
+//        JRadioButton kala = new JRadioButton("Kala");
+//        container.add(new JLabel("Eka!"));
+//        container.add(new JLabel("Toka!"));
+//        container.add(new JLabel("Kolmas!"));
+        //GridLayout layout = new GridLayout(1, 3);
+        //Edellä mainitut eivät näy ilman setLayout-komentoa, siksi oikea muoto:
+//        container.add(luoValikko(), BorderLayout.NORTH);
+//        container.add(statisticsDesktop(), BorderLayout.WEST);
+        //container.setLayout(new BorderLayout());
+//        JButton nappi = new JButton("Pohjoinen (North)");
+//        container.add(nappi, BorderLayout.NORTH);
+//        container.add(new JButton("Itä (East)"), BorderLayout.EAST);
+//        //container.add(new JButton("Etelä (South)"), BorderLayout.SOUTH);
+//        JLabel kentta = new JLabel("Länsi (West)");
+//        container.add(kentta, BorderLayout.WEST);
+//        container.add(new JButton("Keski (Center)"), BorderLayout.CENTER);
+//
+//        container.add(new JButton("Oletuspaikka (Center)"));
+//
+//        nappi.addActionListener(new DashboardListener());
 //        //Koska edelliset eivät vielä tee mitään, tarvitaan tapahtumakuuntelija:
 //        JButton nappi = new JButton("Viestitä!");
 //        nappi.addActionListener(new ViestiKuuntelija());
@@ -52,6 +101,25 @@ public class UserInterface implements Runnable {
 //        container.add(nappi);
     }
 
+//    private JPanel statisticsDesktop() {
+//        JPanel panel = new JPanel(new GridLayout(1, 3));
+//        return panel;
+//    }
+//
+//    private JPanel luoValikko() {
+//        JPanel panel = new JPanel(new GridLayout(1, 3));
+//        panel.add(new JButton("Suorita"));
+//        panel.add(new JButton("Testaa"));
+//        panel.add(new JButton("Lähetä"));
+//        return panel;
+//
+//        BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
+//        container.setLayout(layout);
+//
+//        container.add(new JLabel("Eka!"));
+//        container.add(new JLabel("Toka!"));
+//        container.add(new JLabel("Kolmas!"));
+//    }
     public JFrame getFrame() {
         return frame;
     }

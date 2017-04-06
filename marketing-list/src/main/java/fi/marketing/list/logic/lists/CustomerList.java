@@ -8,8 +8,8 @@ import java.util.UUID;
 
 /**
  * CustomerList Class keeps record of the individual customers. There might be
- * several customerlists for instance if there are organization- or product-wide
- * customer lists.
+ * several customer lists for instance if there are organization- or
+ * product-wide customer lists.
  */
 public class CustomerList {
 

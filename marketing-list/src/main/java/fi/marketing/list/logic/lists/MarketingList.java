@@ -11,10 +11,9 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * MarketingList Class is important part of the process, since we want to know
- * where and when each customer contact were used. customer lists and we want to
- * use only the contacts that are collected within two years from the date
- * consent was given.
+ * MarketingList is important part of the process, since we want to know where
+ * and when each customer contact were used. A consent can be used if it is no
+ * older than two years.
  */
 public class MarketingList {
 

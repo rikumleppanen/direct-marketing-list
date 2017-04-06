@@ -8,9 +8,12 @@ import java.util.Objects;
 import java.util.UUID;
 
 /**
- * Customer Class provides information of the individual customer that is
- * created via new contacts or is updated by the new information provided by the
- * contacts.
+ * Customers consists of an individual row or a set of rows of contact
+ * information. Customers have a list of consents with timestamps so we can use
+ * their contact data in marketing campaigns. There might be situations when an
+ * individual customer cannot be selected to marketing campaigns. For example,
+ * he or she is currently a paying customer so that it is not a reasonable to
+ * market the same product for existing customer.
  */
 public class Customer {
 

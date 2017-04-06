@@ -8,6 +8,11 @@ import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * FileWriter produces a file where all the individual contact rows are added if
+ * the consents are valid. It keeps record of the total number of rows added as
+ * well.
+ */
 public class FileWriter {
 
     private int countRows;
