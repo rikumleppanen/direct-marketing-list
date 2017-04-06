@@ -3,7 +3,6 @@ package fi.marketing.list;
 import fi.marketing.list.logic.Contact;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

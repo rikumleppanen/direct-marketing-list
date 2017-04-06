@@ -1,7 +1,5 @@
 package fi.marketing.list.logic;
 
-import fi.marketing.list.logic.Type;
-import fi.marketing.list.logic.State;
 import java.util.Objects;
 
 public class Contact {
@@ -43,7 +41,7 @@ public class Contact {
 
     public void numberClean() {
         this.row = this.row.replaceAll("[^a-zA-Z0-9+]", "");
-        
+
         if (this.row.contains("+3580")) {
             this.row = this.row.replace("+3580", "0");
         }

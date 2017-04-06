@@ -1,6 +1,5 @@
 package fi.marketing.list.logic;
 
-import fi.marketing.list.logic.Type;
 import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;

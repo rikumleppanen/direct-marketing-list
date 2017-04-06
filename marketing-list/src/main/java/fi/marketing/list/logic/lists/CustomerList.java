@@ -124,11 +124,9 @@ public class CustomerList {
     public void stateEmailOrNumber(Contact row, StateKeeper sk, int k) {
         if (row.getState() == State.sameEmail) {
             sk.set(isEmailSame(row), row, k, row.getState());
-            //k++;
         }
         if (row.getState() == State.sameNumber) {
             sk.set(isNumberSame(row), row, k, row.getState());
-            //k++;
         }
     }
 
@@ -136,10 +134,8 @@ public class CustomerList {
         Customer foundCustomer = find(key, list);
         if (foundCustomer != null) {
             sk.set(foundCustomer, row, k, row.getState());
-            //k++;
         } else {
             sk.set(row, k, row.getState());
-            //k++;
         }
     }
 
