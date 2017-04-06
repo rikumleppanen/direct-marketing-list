@@ -16,4 +16,6 @@ Day | Hours | Description
 28.3.2017 | 6h | Planning all the variations (12 use cases) of adding and updating customers 
 29.3.2017 | 6h | Coding the data list comparisons taking consideration all the variation
 30.3.2017 | 4h | Extending testing, sorting files into packages and finalized the DL3 
+1.4.2017 | 3h | Created package for UI and tested UI alternatives
+6.4.2017 | 4h | Created JavaDocs for Classes and refactored the code according to the feedback
 ... | ... | ...
