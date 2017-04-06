@@ -22,7 +22,7 @@ public class ColorPanel extends JPanel {
     public ColorPanel(Color color, int prefW, int prefH) {
         setBackground(color);
 
-        luoKomponentit(color);
+        createComponents(color);
 
         this.prefW = prefW;
         this.prefH = prefH;
@@ -37,7 +37,7 @@ public class ColorPanel extends JPanel {
 
     }
 
-    private void luoKomponentit(Color color) {
+    private void createComponents(Color color) {
 
     }
 

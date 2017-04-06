@@ -45,6 +45,7 @@ public class Main {
         customers.addNewCustomer("0403456789", Type.phone, 120);
         customers.updateExistingCustomer(customers.getCustomerInsertId(120), "cuc12cuc@cuc12cuc12.fi", Type.email);
         System.out.println("ZZZZ");
+        customers.addNewCustomer("0505551234", Type.phone, 130);
 
         //Lets give state-labels to contacts to make it easer to create and update the customers
         for (Integer key : contactsFromChannelOne.keySet()) {
@@ -71,10 +72,10 @@ public class Main {
         FileWriter writer = new FileWriter();
         writer.write(spring.getName() + ".txt", spring);
         System.out.println("How many rows were saved to the " + spring.getName() + " : " + writer.getRowCount());
-        
+
         //UI
-        SwingUtilities.invokeLater(new UserInterface());
-        
+        SwingUtilities.invokeLater(new UserInterface(customers));
+
         //Testing timestamps
         Consent alpha = new Consent("112", Type.phone);
         try {
@@ -82,7 +83,7 @@ public class Main {
         } catch (InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
-        Consent beta = new Consent("3456",Type.phone);
+        Consent beta = new Consent("3456", Type.phone);
         System.out.println(alpha.getTimestamp().before(beta.getTimestamp()));
         System.out.println(alpha.getTimestamp());
         alpha.setNewTimestamp();

@@ -85,6 +85,10 @@ public class CustomerList {
         return this.custolist;
     }
 
+    public int numberOfCustomers() {
+        return this.custolist.size();
+    }
+
     public List<Consent> getConsentList(Customer cu) {
         for (Customer one : custolist) {
             if (one.equals(cu)) {
@@ -222,6 +226,26 @@ public class CustomerList {
             }
         }
         return false;
+    }
+
+    public int getNumberOfEmails() {
+        int count = 0;
+        for (Customer one : custolist) {
+            if (one.hashCodeEmail() != 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public int getNumberOfPhoneNumbers() {
+        int count = 0;
+        for (Customer one : custolist) {
+            if (one.hashCodeNumber() != 0) {
+                count++;
+            }
+        }
+        return count;
     }
 
     public void setEmail(Customer one, String row) {
