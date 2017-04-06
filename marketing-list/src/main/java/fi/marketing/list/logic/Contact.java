@@ -42,29 +42,19 @@ public class Contact {
     }
 
     public void numberClean() {
-        if (this.row.contains(" ")) {
-            setRow(this.row.replace(" ", ""));
-        }
-        if (this.row.contains("-")) {
-            setRow(this.row.replace("-", ""));
-        }
-        if (this.row.contains("(")) {
-            setRow(this.row.replace("(", ""));
-        }
-        if (this.row.contains(")")) {
-            setRow(this.row.replace(")", ""));
-        }
+        this.row = this.row.replaceAll("[^a-zA-Z0-9+]", "");
+        
         if (this.row.contains("+3580")) {
-            setRow(this.row.replace("+3580", "0"));
+            this.row = this.row.replace("+3580", "0");
         }
         if (this.row.contains("+358")) {
-            setRow(this.row.replace("+358", "0"));
+            this.row = this.row.replace("+358", "0");
         }
         if (this.row.startsWith("3580") == true) {
-            setRow(this.row.replace("358", ""));
+            this.row = this.row.replace("358", "");
         }
         if (this.row.startsWith("358") == true) {
-            setRow(this.row.replace("358", "0"));
+            this.row = this.row.replace("358", "0");
         }
 
     }

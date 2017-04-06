@@ -2,7 +2,6 @@ package fi.marketing.list.logic.lists;
 
 import fi.marketing.list.logic.Contact;
 import fi.marketing.list.logic.Type;
-import fi.marketing.list.logic.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,25 +29,37 @@ public class ContactList {
         }
     }
 
+    public void labelEmail(Contact one) {
+        if (one.isValidEmailAddress() == true) {
+            one.setType(Type.email);
+        } else {
+            one.setType(Type.unknown);
+        }
+    }
+
+    public void labelNumber(Contact one) {
+        if (one.inNumberFormat() == true) {
+            one.setType(Type.phone);
+        } else {
+            one.setType(Type.foreign);
+        }
+    }
+
+    public void cleanAndLabelNumber(Contact one) {
+        if (one.inNumberFormat() == true) {
+            one.setType(Type.phone);
+        } else {
+            one.numberClean();
+            labelNumber(one);
+        }
+    }
+
     public void cleanAndClassify(List<Contact> list) {
         for (Contact item : list) {
             if (item.isEmail() == true) {
-                if (item.isValidEmailAddress() == true) {
-                    item.setType(Type.email);
-                } else {
-                    item.setType(Type.unknown);
-                }
+                labelEmail(item);
             } else {
-                if (item.inNumberFormat() == true) {
-                    item.setType(Type.phone);
-                } else {
-                    item.numberClean();
-                    if (item.inNumberFormat() == true) {
-                        item.setType(Type.phone);
-                    } else {
-                        item.setType(Type.foreign);
-                    }
-                }
+                cleanAndLabelNumber(item);
             }
         }
     }

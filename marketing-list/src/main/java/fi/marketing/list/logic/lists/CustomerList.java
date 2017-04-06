@@ -109,26 +109,38 @@ public class CustomerList {
         int k = 0;
         eye.setN(n);
         for (Contact row : list.get(key)) {
-            if (row.getState() == State.sameEmail) {
-                eye.set(isEmailSame(row), row, k, row.getState());
-                k++;
-            }
-            if (row.getState() == State.sameNumber) {
-                eye.set(isNumberSame(row), row, k, row.getState());
+            if (row.getState() == State.sameEmail || row.getState() == State.sameNumber) {
+                stateEmailOrNumber(row, eye, k);
                 k++;
             }
             if (row.getState() == State.notFound) {
-                Customer foundCustomer = find(key, list);
-                if (foundCustomer != null) {
-                    eye.set(foundCustomer, row, k, row.getState());
-                    k++;
-                } else {
-                    eye.set(row, k, row.getState());
-                    k++;
-                }
+                stateNotFound(row, eye, k, key, list);
+                k++;
             }
         }
         return eye;
+    }
+
+    public void stateEmailOrNumber(Contact row, StateKeeper sk, int k) {
+        if (row.getState() == State.sameEmail) {
+            sk.set(isEmailSame(row), row, k, row.getState());
+            //k++;
+        }
+        if (row.getState() == State.sameNumber) {
+            sk.set(isNumberSame(row), row, k, row.getState());
+            //k++;
+        }
+    }
+
+    public void stateNotFound(Contact row, StateKeeper sk, int k, int key, ContactList list) {
+        Customer foundCustomer = find(key, list);
+        if (foundCustomer != null) {
+            sk.set(foundCustomer, row, k, row.getState());
+            //k++;
+        } else {
+            sk.set(row, k, row.getState());
+            //k++;
+        }
     }
 
     public Customer find(Integer key, ContactList list) {
