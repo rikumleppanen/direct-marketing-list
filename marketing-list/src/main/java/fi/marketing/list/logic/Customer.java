@@ -23,6 +23,9 @@ public class Customer {
     private UUID cusno;
     private int insertId;
 
+    /**
+     * Customer can be generated without any specific information.
+     */
     public Customer() {
         this.email = "";
         this.number = "";
@@ -31,10 +34,16 @@ public class Customer {
         this.consent = new ArrayList<>();
     }
 
+    /**
+     * Customer can be generated with email and number information.
+     *
+     * @param email Email is provided
+     * @param number Phone number is provided
+     */
     public Customer(String email, String number) {
         this.email = email;
         this.number = number;
-        this.cusno = UUID.randomUUID();;
+        this.cusno = UUID.randomUUID();
         this.insertId = 0;
         this.consent = new ArrayList<>();
     }
@@ -96,6 +105,14 @@ public class Customer {
         return list;
     }
 
+    /**
+     * As every customer has a list of consents with timestamps, we want to find
+     * the latest of consents by Type.
+     *
+     * @param type Type selects whether we are interested in emails or phone
+     * numbers
+     * @return chosen Gives a Consent that is the latest of the same type
+     */
     public Consent getMaxConsent(Type type) {
         List<Consent> list = getConsentList(type);
         if (!list.isEmpty()) {
@@ -116,6 +133,10 @@ public class Customer {
         consent.add(new Consent(row, type));
     }
 
+    /**
+     * HashCode consists of hashCode of email and hashCode of phone number each
+     * separately.
+     */
     @Override
     public int hashCode() {
         return hashCodeEmail() + hashCodeNumber();

@@ -19,6 +19,15 @@ public class CustomerList {
         this.custolist = new ArrayList<>();
     }
 
+    /**
+     * Customers can be generated with the Customer()
+     *
+     * @param row is the contact row i.e. email or phone number
+     * @param type is the type of contact row so as to know whether the row is
+     * email or number
+     * @param id is the insertation number given by the source system or the
+     * file that is downloaded to the system
+     */
     public void addNewCustomer(String row, Type type, int id) {
         if (type == Type.phone || type == Type.foreign) {
             this.custolist.add(new Customer().setNumberC(row).setID(id));
@@ -28,6 +37,14 @@ public class CustomerList {
         }
     }
 
+    /**
+     * For existing customers we can add or change the current information
+     *
+     * @param customer is the existing customer number
+     * @param row is the contact row i.e. email or phone number
+     * @param type is the type of contact row so as to know whether the row is
+     * email or number
+     */
     public void updateExistingCustomer(Customer customer, String row, Type type) {
         if (type == Type.phone || type == Type.foreign) {
             setNumber(customer, row);
@@ -77,6 +94,14 @@ public class CustomerList {
         return null;
     }
 
+    /**
+     * Customers can be created and found by customer number or insertation
+     * number.
+     *
+     * @param key is the key of ContactList, each key can have one to many rows
+     * of contact data
+     * @param list is the ContactList that we are comparing to these customers.
+     */
     public void createAndUpdate(Integer key, ContactList list) {
         StateKeeper eye = findState(key, list);
         for (int i = 0; i < eye.size(); i++) {
@@ -96,6 +121,13 @@ public class CustomerList {
         }
     }
 
+    /**
+     * Contacts are labeled after comparing them to customer list.
+     *
+     * @param key is the key of ContactList, each key can have one to many rows
+     * of contact data
+     * @param list is the ContactList that we are comparing to these customers.
+     */
     public void searchAndLabel(Integer key, ContactList list) {
         for (Contact row : list.get(key)) {
             if (isEmailSame(row) != null) {
@@ -108,6 +140,14 @@ public class CustomerList {
         }
     }
 
+    /**
+     * Contacts are labeled and sorted so as to prepare data to be converted to
+     * customers or updating the existing ones.
+     *
+     * @param key is the key of ContactList, each key can have one to many rows
+     * of contact data
+     * @param list is the ContactList that we are comparing to these customers.
+     */
     public StateKeeper findState(Integer key, ContactList list) {
         StateKeeper eye = new StateKeeper();
         int n = list.get(key).size();
@@ -126,6 +166,14 @@ public class CustomerList {
         return eye;
     }
 
+    /**
+     * Contact rows are added to StateKeeper object if email or phone number is
+     * the same with a customer
+     *
+     * @param row is the contact row i.e. email or phone number
+     * @param sk is the StateKeeper where contact rows are added
+     * @param k is table number in StateKeeper object
+     */
     public void stateEmailOrNumber(Contact row, StateKeeper sk, int k) {
         if (row.getState() == State.sameEmail) {
             sk.set(isEmailSame(row), row, k, row.getState());
@@ -135,6 +183,16 @@ public class CustomerList {
         }
     }
 
+    /**
+     * Contact rows are added to StateKeeper object if they are not found in the
+     * customer list
+     *
+     * @param row is the contact row i.e. email or phone number
+     * @param sk is the StateKeeper where contact rows are added
+     * @param k is table number in StateKeeper object
+     * @param key is the key number in the Map of contactList
+     * @param list is the ContactList itself
+     */
     public void stateNotFound(Contact row, StateKeeper sk, int k, int key, ContactList list) {
         Customer foundCustomer = find(key, list);
         if (foundCustomer != null) {

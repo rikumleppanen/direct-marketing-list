@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 12,
-             Errors: 0,
+      <title>File: 15,
+             Errors: 1,
              Warnings: 0,
              Infos: 0
       </title>
@@ -74,6 +74,90 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.State.java">fi/marketing/list/logic/State.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.ui.UserInterface.java">fi/marketing/list/ui/UserInterface.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.ui.DashboardListener.java">fi/marketing/list/ui/DashboardListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.Consent.java">fi/marketing/list/logic/Consent.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.Main.java">fi/marketing/list/Main.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.lists.MarketingList.java">fi/marketing/list/logic/lists/MarketingList.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.Contact.java">fi/marketing/list/logic/Contact.java</a>
                 </td>
                 <td>
@@ -89,20 +173,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.Customer.java">fi/marketing/list/logic/Customer.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.State.java">fi/marketing/list/logic/State.java</a>
                 </td>
                 <td>
                   0
@@ -167,40 +237,12 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.Consent.java">fi/marketing/list/logic/Consent.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.marketing.list.Main.java">fi/marketing/list/Main.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.lists.MarketingList.java">fi/marketing/list/logic/lists/MarketingList.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.ui.ColorPanel.java">fi/marketing/list/ui/ColorPanel.java</a>
                 </td>
                 <td>
                   0

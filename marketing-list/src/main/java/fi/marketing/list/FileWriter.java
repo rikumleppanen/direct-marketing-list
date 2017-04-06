@@ -21,6 +21,12 @@ public class FileWriter {
         this.countRows = 0;
     }
 
+    /**
+     * Method writes each consent from marketing list to a given file.
+     *
+     * @param row is the name of file where the data will be added
+     * @param list is the marketing list where data is generated in the system
+     */
     public void write(String row, MarketingList list) {
         if (list.getRows() == 0) {
             System.out.println("Marketing List is empty");

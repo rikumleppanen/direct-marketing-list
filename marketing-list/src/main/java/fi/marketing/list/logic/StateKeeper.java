@@ -22,6 +22,16 @@ public class StateKeeper {
         this.labels = new State[n];
     }
 
+    /**
+     * StateKeeper receives data from customerlists and therefore the data is
+     * mainly set to StateKeeper
+     *
+     * @param one is the customer object
+     * @param row is the contact row i.e. email or phone number
+     * @param i is the table place number
+     * @param identifier is the State of a contact row i.e. does a contact have
+     * the same email and/or phone number or not
+     */
     public void set(Customer one, Contact row, int i, State identifier) {
         this.customer = one;
         this.rows[i] = row;

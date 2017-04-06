@@ -6,13 +6,17 @@
 </head>
 <body>
 <div id="overview"><a href="../../../../../apidocs/fi/marketing/list/logic/State.html">View Javadoc</a></div><pre>
-<a class="jxr_linenumber" name="L1" href="#L1">1</a>   
-<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <strong class="jxr_keyword">package</strong> fi.marketing.list.logic;
-<a class="jxr_linenumber" name="L3" href="#L3">3</a>   
-<a class="jxr_linenumber" name="L4" href="#L4">4</a>   
-<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">public</strong> enum <a href="../../../../fi/marketing/list/logic/State.html">State</a> {
-<a class="jxr_linenumber" name="L6" href="#L6">6</a>       sameEmail, sameNumber, notFound
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>   }
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> fi.marketing.list.logic;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_javadoccomment"> * Each contact row is compared to each customer's data. If the equal email or</em>
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_javadoccomment"> * phone number is found, the state labels sameEmail and sameNumber</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_javadoccomment"> * respectively. If the contact row is not matched with customers, the row is</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_javadoccomment"> * labeled as state notFound.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">public</strong> enum <a href="../../../../fi/marketing/list/logic/State.html">State</a> {
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>      sameEmail, sameNumber, notFound
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2017. All rights reserved.</div>

@@ -23,6 +23,11 @@ public class FileReader {
         this.countRows = 0;
     }
 
+    /**
+     * Method reads each row of a file and adds contacts
+     *
+     * @param file is the file name that will be read
+     */
     public void read(String file) {
         try (Scanner reader = new Scanner(new File(file), "UTF-8")) {
             while (reader.hasNextLine()) {
