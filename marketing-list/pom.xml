@@ -33,6 +33,14 @@
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
                 <version>1.1.8</version>
+                <configuration>
+                    <targetClasses>
+                        <param>fi.marketing.list.logic.*</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>fi.marketing.list.logic.*</param>
+                    </targetTests>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
