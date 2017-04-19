@@ -17,6 +17,9 @@ public class FileWriter {
 
     private int countRows;
 
+    /**
+     * As FileWriter starts it has not written/uploaded a single row yet.
+     */
     public FileWriter() {
         this.countRows = 0;
     }
@@ -45,6 +48,11 @@ public class FileWriter {
         }
     }
 
+    /**
+     * The number of written/uploaded rows can be obtained.
+     *
+     * @return is the number of rows which were uploaded.
+     */
     public int getRowCount() {
         return this.countRows;
     }

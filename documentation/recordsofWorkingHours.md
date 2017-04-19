@@ -19,4 +19,6 @@ Day | Hours | Description
 1.4.2017 | 3h | Created package for UI and tested UI alternatives
 6.4.2017 | 6h | Created JavaDocs for Classes and refactored the code according to the feedback
 6.4.2017 | 2h | Tested UI alternatives for showing number data (JTextArea)
+18.4.2017 | 4h | Added a few JavaDocs and drafted Sequence Diagrams
+19.4.2017 | 5h| Drafted more Sequence Diagrams and added more JavaDocs
 ... | ... | ...

@@ -15,12 +15,15 @@ public class CustomerList {
 
     private final List<Customer> custolist;
 
+    /**
+     * There can be several CustomerLists for each marketing product here.
+     */
     public CustomerList() {
         this.custolist = new ArrayList<>();
     }
 
     /**
-     * Customers can be generated with the Customer()
+     * Customers can be generated with the method Customer().
      *
      * @param row is the contact row i.e. email or phone number
      * @param type is the type of contact row so as to know whether the row is
@@ -38,7 +41,7 @@ public class CustomerList {
     }
 
     /**
-     * For existing customers we can add or change the current information
+     * For existing customers we can add or update the current Customer card.
      *
      * @param customer is the existing customer number
      * @param row is the contact row i.e. email or phone number
@@ -54,6 +57,12 @@ public class CustomerList {
         }
     }
 
+    /**
+     * A customer can be found by the email, phone or similar.
+     *
+     * @param row is the email, phone number or similar in string format.
+     * @return a customer is returned
+     */
     public Customer getCustomer(String row) {
         for (Customer one : custolist) {
             if (one.getEmail().equals(row) || one.getNumber().equals(row)) {
@@ -63,6 +72,13 @@ public class CustomerList {
         return null;
     }
 
+    /**
+     * A customer can be found by the insertId of the uploaded contact list.
+     *
+     * @param id is the insertId of the upladed contact. This id can be
+     * generated from the source system where the contacts were obtained.
+     * @return a customer is returned
+     */
     public Customer getCustomerInsertId(int id) {
         for (Customer one : custolist) {
             if (one.getInsertId() == id) {
@@ -72,6 +88,12 @@ public class CustomerList {
         return null;
     }
 
+    /**
+     * A customer can be found by the system's customer number.
+     *
+     * @param id is the system's id for a individual customer cart.
+     * @return a customer is returned
+     */
     public Customer getCustomerCusnoId(UUID id) {
         for (Customer one : custolist) {
             if (one.getCusnoId() == id) {
@@ -81,14 +103,30 @@ public class CustomerList {
         return null;
     }
 
+    /**
+     * A list of customers can be obtained.
+     *
+     * @return a list of customers in the list.
+     */
     public List<Customer> getCustomers() {
         return this.custolist;
     }
 
+    /**
+     * A number of customers can be obtained.
+     *
+     * @return a number of customers in the list.
+     */
     public int numberOfCustomers() {
         return this.custolist.size();
     }
 
+    /**
+     * A number of customers can be obtained.
+     *
+     * @param cu is the customer we want to have consents of.
+     * @return a list of consents of a searched customer.
+     */
     public List<Consent> getConsentList(Customer cu) {
         for (Customer one : custolist) {
             if (one.equals(cu)) {
@@ -104,7 +142,7 @@ public class CustomerList {
      *
      * @param key is the key of ContactList, each key can have one to many rows
      * of contact data
-     * @param list is the ContactList that we are comparing to these customers.
+     * @param list is the ContactList that we are comparing to these customers
      */
     public void createAndUpdate(Integer key, ContactList list) {
         StateKeeper eye = findState(key, list);
@@ -129,7 +167,7 @@ public class CustomerList {
      * Contacts are labeled after comparing them to customer list.
      *
      * @param key is the key of ContactList, each key can have one to many rows
-     * of contact data
+     * of contact data.
      * @param list is the ContactList that we are comparing to these customers.
      */
     public void searchAndLabel(Integer key, ContactList list) {
@@ -151,6 +189,8 @@ public class CustomerList {
      * @param key is the key of ContactList, each key can have one to many rows
      * of contact data
      * @param list is the ContactList that we are comparing to these customers.
+     * @return gives a StateKeeper object which entails all the contact info of
+     * a contact
      */
     public StateKeeper findState(Integer key, ContactList list) {
         StateKeeper eye = new StateKeeper();
@@ -172,7 +212,7 @@ public class CustomerList {
 
     /**
      * Contact rows are added to StateKeeper object if email or phone number is
-     * the same with a customer
+     * the same with a customer.
      *
      * @param row is the contact row i.e. email or phone number
      * @param sk is the StateKeeper where contact rows are added
@@ -189,7 +229,7 @@ public class CustomerList {
 
     /**
      * Contact rows are added to StateKeeper object if they are not found in the
-     * customer list
+     * customer list.
      *
      * @param row is the contact row i.e. email or phone number
      * @param sk is the StateKeeper where contact rows are added
@@ -206,6 +246,17 @@ public class CustomerList {
         }
     }
 
+    /**
+     * A customer can be found from the ContactList if at least one hashCode is
+     * same with customers hashCodes.
+     *
+     * @param key is the key that indicates one or several rows of inserted
+     * contact info.
+     * @param list is the ContactList we want to compare with the existing
+     * customers.
+     * @return a customer if ContactList have a same contact info according to
+     * hashCode search.
+     */
     public Customer find(Integer key, ContactList list) {
         for (Customer one : custolist) {
             Iterator<Contact> iter = list.get(key).iterator();
@@ -219,6 +270,13 @@ public class CustomerList {
         return null;
     }
 
+    /**
+     * A customer's phone number can be found by comparing the contact row.
+     *
+     * @param row is the contact row
+     * @return is true if the phone number is the same in customer list compared
+     * to contact list.
+     */
     public boolean existsNumber(String row) {
         for (Customer one : custolist) {
             if (one.getNumber().equals(row)) {
@@ -228,6 +286,11 @@ public class CustomerList {
         return false;
     }
 
+    /**
+     * The number of emails can be obtained from customer list.
+     *
+     * @return is the number of emails found in the customer list
+     */
     public int getNumberOfEmails() {
         int count = 0;
         for (Customer one : custolist) {
@@ -238,6 +301,11 @@ public class CustomerList {
         return count;
     }
 
+    /**
+     * The number of phone numbers can be obtained from customer list.
+     *
+     * @return is the number of phone numbers found in the customer list
+     */
     public int getNumberOfPhoneNumbers() {
         int count = 0;
         for (Customer one : custolist) {
@@ -248,18 +316,36 @@ public class CustomerList {
         return count;
     }
 
+    /**
+     * The email of a customer can be set from the contact row.
+     *
+     * @param one is the customer we want to manipulate
+     * @param row is the contact row that we want to insert into customer cart
+     */
     public void setEmail(Customer one, String row) {
         if (one != null) {
             one.setEmail(row);
         }
     }
 
+    /**
+     * The phone number of a customer can be set from the contact row.
+     *
+     * @param one is the customer we want to manipulate
+     * @param row is the contact row that we want to insert into customer cart
+     */
     public void setNumber(Customer one, String row) {
         if (one != null) {
             one.setNumber(row);
         }
     }
 
+    /**
+     * The email of contact can be compared to the customers' emails.
+     *
+     * @param row is the contact row that we want to compare.
+     * @return is the object of Customer if hashCode equals with the row.
+     */
     public Customer isEmailSame(Contact row) {
         for (Customer one : custolist) {
             if (one.hashCodeEmail() == row.hashCodeEmail()) {
@@ -269,6 +355,13 @@ public class CustomerList {
         return null;
     }
 
+    /**
+     * The phone number of contact can be compared to the customers' phone
+     * numbers.
+     *
+     * @param row is the contact row that we want to compare.
+     * @return is the object of Customer if hashCode equals with the row.
+     */
     public Customer isNumberSame(Contact row) {
         for (Customer one : custolist) {
             if (one.hashCodeNumber() == row.hashCodeNumber()) {
@@ -278,6 +371,13 @@ public class CustomerList {
         return null;
     }
 
+    /**
+     * All the Consents from the CustomerList can be obtained by the type of
+     * contact.
+     *
+     * @param type is the type of consent, for instance email or phone number
+     * @return is the list of Consents
+     */
     public List<Consent> getAllConsentsList(Type type) {
         List<Consent> cons = new ArrayList<>();
         for (Customer one : custolist) {
@@ -286,6 +386,9 @@ public class CustomerList {
         return cons;
     }
 
+    /**
+     * The contents of customer list can be printed.
+     */
     public void print() {
         for (Customer one : custolist) {
             System.out.println(one.getNumber() + " " + one.getEmail() + " " + one.getInsertId() + " " + one.hashCodeEmail() + " " + one.hashCodeNumber());

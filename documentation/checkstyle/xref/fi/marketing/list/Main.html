@@ -53,51 +53,52 @@
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>          customers.addNewCustomer(<span class="jxr_string">"0403456789"</span>, Type.phone, 120);
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>          customers.updateExistingCustomer(customers.getCustomerInsertId(120), <span class="jxr_string">"cuc12cuc@cuc12cuc12.fi"</span>, Type.email);
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>          System.out.println(<span class="jxr_string">"ZZZZ"</span>);
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>  
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>          <em class="jxr_comment">//Lets give state-labels to contacts to make it easer to create and update the customers</em>
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>          <strong class="jxr_keyword">for</strong> (Integer key : contactsFromChannelOne.keySet()) {
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>              customers.searchAndLabel(key, contactsFromChannelOne);
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>          }
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>          <em class="jxr_comment">//Lets create and update customers according to the contents of contact list</em>
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>          System.out.println(<span class="jxr_string">"rrrr"</span>);
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>          <strong class="jxr_keyword">for</strong> (Integer key : contactsFromChannelOne.keySet()) {
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>              customers.createAndUpdate(key, contactsFromChannelOne);
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>          }
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>          System.out.println(<span class="jxr_string">"wwwww"</span>);
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>          customers.print();
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>          System.out.println(<span class="jxr_string">"dddd"</span>);
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>          <em class="jxr_comment">//contactsFromChannelOne.print();</em>
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>          System.out.println(<span class="jxr_string">"dddd"</span>);
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>          <em class="jxr_comment">//Lets create a special Marketing List that will be the basis for a campaign</em>
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>          <a href="../../../fi/marketing/list/logic/lists/MarketingList.html">MarketingList</a> spring = <strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/logic/lists/MarketingList.html">MarketingList</a>(<span class="jxr_string">"SpringCampaingEmail"</span>);
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>          <em class="jxr_comment">//Lets be specific and say we want to use just emails in our spring campaign</em>
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>          List&lt;Customer&gt; custolist = customers.getCustomers();
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>          spring.addToCampaign(Type.phone, custolist);
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>          spring.print();
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>  
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>          <em class="jxr_comment">//Lets transfer the SpringCampaignEmail-list to a txt</em>
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>          <a href="../../../fi/marketing/list/FileWriter.html">FileWriter</a> writer = <strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/FileWriter.html">FileWriter</a>();
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>          writer.write(spring.getName() + <span class="jxr_string">".txt"</span>, spring);
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>          System.out.println(<span class="jxr_string">"How many rows were saved to the "</span> + spring.getName() + <span class="jxr_string">" : "</span> + writer.getRowCount());
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>          
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>          <em class="jxr_comment">//UI</em>
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>          SwingUtilities.invokeLater(<strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/ui/UserInterface.html">UserInterface</a>());
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>          
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>          <em class="jxr_comment">//Testing timestamps</em>
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>          <a href="../../../fi/marketing/list/logic/Consent.html">Consent</a> alpha = <strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/logic/Consent.html">Consent</a>(<span class="jxr_string">"112"</span>, Type.phone);
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>          <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L81" href="#L81">81</a>              Thread.sleep(1000);                 <em class="jxr_comment">//1000 milliseconds is one second.</em>
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>          } <strong class="jxr_keyword">catch</strong> (InterruptedException ex) {
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>              Thread.currentThread().interrupt();
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>          }
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>          <a href="../../../fi/marketing/list/logic/Consent.html">Consent</a> beta = <strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/logic/Consent.html">Consent</a>(<span class="jxr_string">"3456"</span>,Type.phone);
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>          System.out.println(alpha.getTimestamp().before(beta.getTimestamp()));
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>          System.out.println(alpha.getTimestamp());
-<a class="jxr_linenumber" name="L88" href="#L88">88</a>          alpha.setNewTimestamp();
-<a class="jxr_linenumber" name="L89" href="#L89">89</a>          System.out.println(alpha.getTimestamp());
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>          System.out.println(alpha.getTimestamp().before(beta.getTimestamp()));
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>      }
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>  }
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>          customers.addNewCustomer(<span class="jxr_string">"0505551234"</span>, Type.phone, 130);
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          <em class="jxr_comment">//Lets give state-labels to contacts to make it easer to create and update the customers</em>
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>          <strong class="jxr_keyword">for</strong> (Integer key : contactsFromChannelOne.keySet()) {
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>              customers.searchAndLabel(key, contactsFromChannelOne);
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>          }
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>          <em class="jxr_comment">//Lets create and update customers according to the contents of contact list</em>
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          System.out.println(<span class="jxr_string">"rrrr"</span>);
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>          <strong class="jxr_keyword">for</strong> (Integer key : contactsFromChannelOne.keySet()) {
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>              customers.createAndUpdate(key, contactsFromChannelOne);
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>          }
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>          System.out.println(<span class="jxr_string">"wwwww"</span>);
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>          customers.print();
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>          System.out.println(<span class="jxr_string">"dddd"</span>);
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          <em class="jxr_comment">//contactsFromChannelOne.print();</em>
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          System.out.println(<span class="jxr_string">"dddd"</span>);
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          <em class="jxr_comment">//Lets create a special Marketing List that will be the basis for a campaign</em>
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          <a href="../../../fi/marketing/list/logic/lists/MarketingList.html">MarketingList</a> spring = <strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/logic/lists/MarketingList.html">MarketingList</a>(<span class="jxr_string">"SpringCampaingEmail"</span>);
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          <em class="jxr_comment">//Lets be specific and say we want to use just emails in our spring campaign</em>
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          List&lt;Customer&gt; custolist = customers.getCustomers();
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          spring.addToCampaign(Type.phone, custolist);
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>          spring.print();
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          <em class="jxr_comment">//Lets transfer the SpringCampaignEmail-list to a txt</em>
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          <a href="../../../fi/marketing/list/FileWriter.html">FileWriter</a> writer = <strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/FileWriter.html">FileWriter</a>();
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>          writer.write(spring.getName() + <span class="jxr_string">".txt"</span>, spring);
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          System.out.println(<span class="jxr_string">"How many rows were saved to the "</span> + spring.getName() + <span class="jxr_string">" : "</span> + writer.getRowCount());
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          <em class="jxr_comment">//UI</em>
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>          SwingUtilities.invokeLater(<strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/ui/UserInterface.html">UserInterface</a>(customers));
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          <em class="jxr_comment">//Testing timestamps</em>
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>          <a href="../../../fi/marketing/list/logic/Consent.html">Consent</a> alpha = <strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/logic/Consent.html">Consent</a>(<span class="jxr_string">"112"</span>, Type.phone);
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>          <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>              Thread.sleep(1000);                 <em class="jxr_comment">//1000 milliseconds is one second.</em>
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>          } <strong class="jxr_keyword">catch</strong> (InterruptedException ex) {
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>              Thread.currentThread().interrupt();
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>          }
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>          <a href="../../../fi/marketing/list/logic/Consent.html">Consent</a> beta = <strong class="jxr_keyword">new</strong> <a href="../../../fi/marketing/list/logic/Consent.html">Consent</a>(<span class="jxr_string">"3456"</span>, Type.phone);
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          System.out.println(alpha.getTimestamp().before(beta.getTimestamp()));
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>          System.out.println(alpha.getTimestamp());
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>          alpha.setNewTimestamp();
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>          System.out.println(alpha.getTimestamp());
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>          System.out.println(alpha.getTimestamp().before(beta.getTimestamp()));
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>      }
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2017. All rights reserved.</div>
