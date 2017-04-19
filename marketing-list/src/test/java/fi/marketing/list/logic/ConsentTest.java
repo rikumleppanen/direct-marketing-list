@@ -1,12 +1,7 @@
 package fi.marketing.list.logic;
 
-import fi.marketing.list.logic.Consent;
 import fi.marketing.list.logic.lists.MarketingList;
-import fi.marketing.list.logic.Type;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -41,6 +36,14 @@ public class ConsentTest {
     }
 
     @Test
+    public void setTest() {
+        alpha.setRow("0123456");
+        assertEquals("0123456", alpha.getRow());
+        alpha.setType(Type.foreign);
+        assertEquals(Type.foreign, alpha.getType());
+    }
+
+    @Test
     public void timestampTest() {
         assertTrue(alpha.getTimestamp() != null);
         assertEquals(true, alpha.getTimestamp().before(beta.getTimestamp()));
@@ -52,7 +55,8 @@ public class ConsentTest {
     public void marketingListUpdateTest() {
         assertTrue(newey != null);
         assertEquals("EarlyBirdCampaign", newey.getName());
-        //alpha.rememberMarketingList(newey.getName(), newey.getCreated());
+        alpha.rememberMarketingList(newey.getName(), newey.getCreated());
+        assertEquals("EarlyBirdCampaign", alpha.getNameOfMarketingList("EarlyBirdCampaign"));
     }
 
 }

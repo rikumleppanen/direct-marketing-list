@@ -107,52 +107,52 @@ public class StateKeeper {
         return this.labels[i];
     }
 
-    /**
-     * If the state is not found within any of the items in table then this will
-     * be true.
-     *
-     * @return if not a sigle item is found
-     */
-    public boolean isNotAtAllFound() {
-        int k = 0;
-        for (int i = 0; i < this.labels.length; i++) {
-            if (this.labels[i] == State.notFound) {
-                k++;
-            }
-        }
-        if (k == this.labels.length) {
-            return true;
-        }
-        return false;
-    }
+//    /**
+//     * If the state is not found within any of the items in table then this will
+//     * be true.
+//     *
+//     * @return if not a sigle item is found
+//     */
+//    public boolean isNotAtAllFound() {
+//        int k = 0;
+//        for (int i = 0; i < this.labels.length; i++) {
+//            if (this.labels[i] == State.notFound) {
+//                k++;
+//            }
+//        }
+//        if (k == this.labels.length) {
+//            return true;
+//        }
+//        return false;
+//    }
 
-    /**
-     * If the state is not found within some of the items in table then this
-     * will be true.
-     *
-     * @return if not found at least once
-     */
-    public boolean isNotFound() {
-        for (int i = 0; i < this.labels.length; i++) {
-            if (this.labels[i] == State.notFound) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * If the contact info in several rows is identical to the customer info
-     * then this will be true.
-     *
-     * @return is true if the rows are identical to the customers' info
-     */
-    public boolean isIdenticalRow() {
-        for (int i = 0; i < this.labels.length; i++) {
-            if (this.labels[i] == State.sameEmail || this.labels[i] == State.sameNumber) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    /**
+//     * If the state is not found within some of the items in table then this
+//     * will be true.
+//     *
+//     * @return if not found at least once
+//     */
+//    public boolean isNotFound() {
+//        for (int i = 0; i < this.labels.length; i++) {
+//            if (this.labels[i] == State.notFound) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+//
+//    /**
+//     * If the contact info in several rows is identical to the customer info
+//     * then this will be true.
+//     *
+//     * @return is true if the rows are identical to the customers' info
+//     */
+//    public boolean isIdenticalRow() {
+//        for (int i = 0; i < this.labels.length; i++) {
+//            if (this.labels[i] == State.sameEmail || this.labels[i] == State.sameNumber) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 }

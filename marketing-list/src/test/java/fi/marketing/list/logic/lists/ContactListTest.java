@@ -1,17 +1,11 @@
 package fi.marketing.list.logic.lists;
 
 import fi.marketing.list.logic.Contact;
-import fi.marketing.list.logic.Contact;
 import fi.marketing.list.logic.State;
-import fi.marketing.list.logic.State;
-import fi.marketing.list.logic.Type;
 import fi.marketing.list.logic.Type;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -82,6 +76,8 @@ public class ContactListTest {
     public void getContactTest() {
         assertEquals("testemail@helsinki", channel.getContact("testemail@helsinki").getRow());
         assertEquals("091234", channel.getContact("091234").getRow());
+        assertEquals(null, channel.getContact("0912341"));
+        assertEquals("testingCampaign",channel.getNameOfContactList());
     }
 
     @Test

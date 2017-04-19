@@ -1,15 +1,10 @@
 package fi.marketing.list.logic.lists;
 
 import fi.marketing.list.logic.Customer;
-import fi.marketing.list.logic.Customer;
-import fi.marketing.list.logic.Type;
 import fi.marketing.list.logic.Type;
 import java.sql.Timestamp;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -67,9 +62,10 @@ public class MarketingListTest {
         assertEquals(2, list.getRows());
         assertEquals("a4@a4.fi", list.getListOfConsents().get(0).getRow());
         assertEquals("uc6@uc6.fi", list.getListOfConsents().get(1).getRow());
-
+        assertEquals(list.getName(), customers.getCustomer("uc6@uc6.fi").getConsentList().get(0).getNameOfMarketingList("TestCampaign"));
     }
 
+    @Test
     public void addToCampaignListNumbers() {
         list.addToCampaign(Type.phone, custolist);
         assertEquals(2, list.getRows());

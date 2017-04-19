@@ -1,18 +1,11 @@
 package fi.marketing.list.logic.lists;
 
 import fi.marketing.list.FileReader;
-import fi.marketing.list.logic.Customer;
-import fi.marketing.list.logic.Contact;
 import fi.marketing.list.logic.Contact;
 import fi.marketing.list.logic.Customer;
 import fi.marketing.list.logic.Type;
-import fi.marketing.list.logic.Type;
-import java.util.ArrayList;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -83,43 +76,56 @@ public class CustomerListTest {
     @Test
     public void createNewCustomersTest() {
 
-        //Test case 1
+        //Test case 1 (add an email address)
         assertEquals("n1@n1.fi", customers.getCustomer("n1@n1.fi").getEmail());
         assertEquals("", customers.getCustomer("n1@n1.fi").getNumber());
-        //Test case 2
+        //Test case 2 (add a phone number)
         assertEquals("021234567", customers.getCustomer("021234567").getNumber());
         assertEquals("", customers.getCustomer("021234567").getEmail());
-        //Test case 3 + add a row
+        //Test case 3 (add both email address and phone number)
         assertEquals("n3@n3.fi", customers.getCustomer("n3@n3.fi").getEmail());
         assertEquals("035467865", customers.getCustomer("n3@n3.fi").getNumber());
     }
 
     @Test
     public void addARowToExistingCustomerTest() {
-        //Test case 4
+        //Test case 4 (add a phone number to the customer who has the same email address)
         assertEquals("a4@a4.fi", customers.getCustomer("a4@a4.fi").getEmail());
         assertEquals("043456773", customers.getCustomer("a4@a4.fi").getNumber());
-        //Test case 5
+        //Test case 5 (add a email address to the customer who has the same phone number)
         assertEquals("0507378716", customers.getCustomer("0507378716").getNumber());
         assertEquals("a5@a5.fi", customers.getCustomer("0507378716").getEmail());
     }
 
 //    @Test
 //    public void updateAConsentToExistingCustomerTest() {
-//        //Test case 6   
-//        //Test case 7      
-//        //Test case 8      
-//        //Test case 9
-//        //Test case 10
+//        //Test case 6 (add a new email consent)
+//        assertEquals(2, customers.getCustomer("uc6@uc6.fi").getConsentList(Type.email).size());
+//        //Test case 7 (add a new phone number consent)
+//        //Test case 8 (add both email and phone number consent)
+//        //Test case 9 (add an email address consent to customer who has existing email address and phone number)
+//        //Test case 10 (add a phone number consent to customer who has existing email address and phone number)
 //    }
     @Test
     public void updateARowToExistingCustomerTest() {
-        //Test case 11
+        //Test case 11 (update phone number to the customer who has been matched by email address)
         assertEquals("cuc11@cuc11.com", customers.getCustomer("cuc11@cuc11.com").getEmail());
         assertEquals("111111111", customers.getCustomer("cuc11@cuc11.com").getNumber());
-        //Test case 12
+        //Test case 12 (update email address to the customer who has been matched by phone number)
         assertEquals("0403456789", customers.getCustomer("0403456789").getNumber());
         assertEquals("cuc12@cuc12.fi", customers.getCustomer("0403456789").getEmail());
+    }
+    @Test
+    public void countingTest() {
+        assertEquals(10,customers.getNumberOfEmails());
+        assertEquals(10,customers.getNumberOfPhoneNumbers());
+        assertEquals(12,customers.numberOfCustomers());
+    }
+    @Test
+    public void existsNumberTest() {
+        assertTrue(customers.existsNumber("0507378716"));
+        assertFalse(customers.existsNumber("05073787164"));
+
     }
 
 //    @Test

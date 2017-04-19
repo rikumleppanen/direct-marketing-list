@@ -90,7 +90,13 @@ public class CustomerTest {
 
     @Test
     public void equalsTest() {
+        one.setEmail("test@test.com");
+        two.setEmail("test@test.com");
+        two.setNumber("0401234567");
         assertTrue(one.equals(one));
+        assertFalse(two.equals(one));
+        assertTrue(one.getEmail().equals(two.getEmail()));
+        assertFalse(one.getNumber().equals(two.getNumber()));
 
     }
 }

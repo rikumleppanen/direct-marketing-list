@@ -3,6 +3,7 @@ package fi.marketing.list.logic;
 import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Consents have each their own lifespan of two years from the latest consent.
@@ -58,6 +59,19 @@ public class Consent {
      */
     public void rememberMarketingList(String name, Timestamp date) {
         used.put(name, date);
+    }
+
+    /**
+     * Get the Name of Marketing List.
+     *
+     * @param name is the name of Campaign which we are searching
+     * @return is the name of Marketing List.
+     */
+    public String getNameOfMarketingList(String name) {
+        if (this.used.containsKey(name)) {
+            return name;
+        }
+        return "";
     }
 
     public void setType(Type type) {

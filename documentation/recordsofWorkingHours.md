@@ -21,4 +21,5 @@ Day | Hours | Description
 6.4.2017 | 2h | Tested UI alternatives for showing number data (JTextArea)
 18.4.2017 | 4h | Added a few JavaDocs and drafted Sequence Diagrams
 19.4.2017 | 5h| Drafted more Sequence Diagrams and added more JavaDocs
+19.4.2017 | 3h | Generated more JUnit tests and updated Pit and CheckStyle Report
 ... | ... | ...
