@@ -71,41 +71,55 @@ public class Main {
                     }
                 }
             } else if (decision.equalsIgnoreCase("create") || decision.equalsIgnoreCase("marketing list") || decision.equalsIgnoreCase("list")) {
-                System.out.println("Do you want to collect phone numbers or emails?");
-                //Lets create a special Marketing List that will be the basis for a campaign
-                MarketingList spring = new MarketingList("SpringCampaign");
-                //Lets be specific and say we want to use just emails in our spring campaign
-                List<Customer> custolist = customers.getCustomers();
                 while (true) {
+                    System.out.println("What will be the name of this marketing list?");
                     System.out.print("> ");
-                    String option = reader.nextLine();
-                    if (option.equalsIgnoreCase("phone numbers") || option.equalsIgnoreCase("numbers")) {
-                        spring.addToCampaign(Type.phone, custolist);
-                        break;
-                    } else if (option.equalsIgnoreCase("emails")) {
-                        spring.addToCampaign(Type.email, custolist);
+                    String campaignName = reader.nextLine();
+                    if (!campaignName.isEmpty()) {
+
+                        System.out.println("Do you want to collect phone numbers or emails?");
+                        //Lets create a special Marketing List that will be the basis for a campaign
+                        MarketingList spring = new MarketingList(campaignName);
+                        //Lets be specific and say we want to use just emails in our spring campaign
+                        List<Customer> custolist = customers.getCustomers();
+                        while (true) {
+                            System.out.print("> ");
+                            String option = reader.nextLine();
+                            if (option.equalsIgnoreCase("phone numbers") || option.equalsIgnoreCase("numbers")) {
+                                spring.addToCampaign(Type.phone, custolist);
+                                break;
+                            } else if (option.equalsIgnoreCase("emails")) {
+                                spring.addToCampaign(Type.email, custolist);
+                                break;
+                            } else {
+                                System.out.println("Please state 'emails' or 'numbers' or 'phone numbers'");
+                            }
+
+                        }
+                        FileWriter writer = new FileWriter();
+                        writer.write(spring.getName() + ".txt", spring);
+                        System.out.println("How many rows were saved to the " + spring.getName() + " : " + writer.getRowCount());
+                        //UI
+                        //SwingUtilities.invokeLater(new UserInterface(customers));
+                        SwingUtilities.invokeLater(new Runnable() {
+                            public void run() {
+                                //Turn off metal's use of bold fonts
+                                UIManager.put("swing.boldMetal", Boolean.FALSE);
+                                new ResultArea(spring).setVisible(true);
+                            }
+                        });
                         break;
                     } else {
-                        System.out.println("Please state 'emails' or 'numbers' or 'phone numbers'");
+                        System.out.println("Please state a name for the marketing list.");
                     }
                 }
-                FileWriter writer = new FileWriter();
-                writer.write(spring.getName() + ".txt", spring);
-                System.out.println("How many rows were saved to the " + spring.getName() + " : " + writer.getRowCount());
-                //UI
-                //SwingUtilities.invokeLater(new UserInterface(customers));
-                SwingUtilities.invokeLater(new Runnable() {
-                    public void run() {
-                        //Turn off metal's use of bold fonts
-                        UIManager.put("swing.boldMetal", Boolean.FALSE);
-                        new ResultArea(spring).setVisible(true);
-                    }
-                });
 
             } else {
                 System.out.println("Please state your command clearly");
             }
+
         }
+        System.exit(0);
 
 //        //Testing timestamps
 //        Consent alpha = new Consent("112", Type.phone);
