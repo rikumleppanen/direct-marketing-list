@@ -408,12 +408,12 @@ public class CustomerList {
         return cons;
     }
 
-    /**
-     * The contents of customer list can be printed.
-     */
-    public void print() {
-        for (Customer one : custolist) {
-            System.out.println(one.getNumber() + " " + one.getEmail() + " " + one.getInsertId() + " " + one.hashCodeEmail() + " " + one.hashCodeNumber());
-        }
-    }
+//    /**
+//     * The contents of customer list can be printed.
+//     */
+//    public void print() {
+//        for (Customer one : custolist) {
+//            System.out.println(one.getNumber() + " " + one.getEmail() + " " + one.getInsertId() + " " + one.hashCodeEmail() + " " + one.hashCodeNumber());
+//        }
+//    }
 }

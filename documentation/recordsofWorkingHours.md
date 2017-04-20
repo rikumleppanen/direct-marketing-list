@@ -22,4 +22,5 @@ Day | Hours | Description
 18.4.2017 | 4h | Added a few JavaDocs and drafted Sequence Diagrams
 19.4.2017 | 5h| Drafted more Sequence Diagrams and added more JavaDocs
 19.4.2017 | 3h | Generated more JUnit tests and updated Pit and CheckStyle Report
+20.4.2017 | 7h | Coded more, added a ResultArea to UI and made extensive changes in Main Class
 ... | ... | ...

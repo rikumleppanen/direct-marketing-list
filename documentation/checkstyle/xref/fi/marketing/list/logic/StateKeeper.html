@@ -149,20 +149,20 @@
 <a class="jxr_linenumber" name="L141" href="#L141">141</a> <em class="jxr_comment">//        return false;</em>
 <a class="jxr_linenumber" name="L142" href="#L142">142</a> <em class="jxr_comment">//    }</em>
 <a class="jxr_linenumber" name="L143" href="#L143">143</a> <em class="jxr_comment">//</em>
-<a class="jxr_linenumber" name="L144" href="#L144">144</a> <em class="jxr_comment">//    /**</em>
-<a class="jxr_linenumber" name="L145" href="#L145">145</a> <em class="jxr_comment">//     * If the contact info in several rows is identical to the customer info</em>
-<a class="jxr_linenumber" name="L146" href="#L146">146</a> <em class="jxr_comment">//     * then this will be true.</em>
-<a class="jxr_linenumber" name="L147" href="#L147">147</a> <em class="jxr_comment">//     *</em>
-<a class="jxr_linenumber" name="L148" href="#L148">148</a> <em class="jxr_comment">//     * @return is true if the rows are identical to the customers' info</em>
-<a class="jxr_linenumber" name="L149" href="#L149">149</a> <em class="jxr_comment">//     */</em>
-<a class="jxr_linenumber" name="L150" href="#L150">150</a> <em class="jxr_comment">//    public boolean isIdenticalRow() {</em>
-<a class="jxr_linenumber" name="L151" href="#L151">151</a> <em class="jxr_comment">//        for (int i = 0; i &lt; this.labels.length; i++) {</em>
-<a class="jxr_linenumber" name="L152" href="#L152">152</a> <em class="jxr_comment">//            if (this.labels[i] == State.sameEmail || this.labels[i] == State.sameNumber) {</em>
-<a class="jxr_linenumber" name="L153" href="#L153">153</a> <em class="jxr_comment">//                return true;</em>
-<a class="jxr_linenumber" name="L154" href="#L154">154</a> <em class="jxr_comment">//            }</em>
-<a class="jxr_linenumber" name="L155" href="#L155">155</a> <em class="jxr_comment">//        }</em>
-<a class="jxr_linenumber" name="L156" href="#L156">156</a> <em class="jxr_comment">//        return false;</em>
-<a class="jxr_linenumber" name="L157" href="#L157">157</a> <em class="jxr_comment">//    }</em>
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L145" href="#L145">145</a> <em class="jxr_javadoccomment">     * If the contact info in several rows is identical to the customer info</em>
+<a class="jxr_linenumber" name="L146" href="#L146">146</a> <em class="jxr_javadoccomment">     * then this will be true.</em>
+<a class="jxr_linenumber" name="L147" href="#L147">147</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L148" href="#L148">148</a> <em class="jxr_javadoccomment">     * @return is true if the rows are identical to the customers' info</em>
+<a class="jxr_linenumber" name="L149" href="#L149">149</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isIdenticalRow() {
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; <strong class="jxr_keyword">this</strong>.labels.length; i++) {
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>             <strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.labels[i] == State.sameEmail || <strong class="jxr_keyword">this</strong>.labels[i] == State.sameNumber) {
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>             }
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>         }
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>         <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>     }
 <a class="jxr_linenumber" name="L158" href="#L158">158</a> }
 </pre>
 <hr/>

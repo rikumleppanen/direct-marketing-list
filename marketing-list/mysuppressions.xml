@@ -9,4 +9,5 @@
     <suppress files="UserInterface.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="DashboardListener.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="ColorPanel.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ResultArea.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>

@@ -123,11 +123,23 @@ public class MarketingList {
 
     /**
      * The contents of marketing list can be printed.
+     *
+     * @return is the list in string format.
      */
-    public void print() {
+    public String printString() {
+        String a = "";
         for (Consent one : list) {
-            System.out.println(one.getRow());
+            a += one.getRow() + "\n";
         }
+        return a;
     }
 
+//    /**
+//     * The contents of marketing list can be printed.
+//     */
+//    public void print() {
+//        for (Consent one : list) {
+//            System.out.println(one.getRow());
+//        }
+//    }
 }

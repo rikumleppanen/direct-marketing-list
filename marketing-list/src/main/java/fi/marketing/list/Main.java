@@ -8,28 +8,121 @@ import fi.marketing.list.logic.lists.MarketingList;
 import fi.marketing.list.logic.Type;
 import fi.marketing.list.ui.*;
 import java.util.List;
+import java.util.Scanner;
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
 public class Main {
 
     public static void main(String[] args) {
-
-        //Shall read the data from a txt file     
-        FileReader just = new FileReader();
-        just.read("koe1.txt");
-        //Lets take contacts out of the FileReader
-        List contacts = just.getList();
-
-        //Lets create a special ContactList where individual contact rows are bundled together by insertations
-        ContactList contactsFromChannelOne = new ContactList("ChannelONE");
-        System.out.println("There is " + just.getNumberOfRows() + " rows of contact data to be put on the list " + contactsFromChannelOne.getNameOfContactList());
-        //lets add all the given data to our ContactLit
-        contactsFromChannelOne.addContactToList(contacts);
-        //next we will clean and classify the contacts within ContactList
-        contactsFromChannelOne.cleanAndClassify(contacts);
+        Scanner reader = new Scanner(System.in);
 
         //Lets create Customers that are already in the customer list to be matched with fresh contact data
         CustomerList customers = new CustomerList();
+        loadingExistingCustomers(customers);
+//        System.out.println("ZZZZ");
+//        customers.addNewCustomer("0505551234", Type.phone, 130);
+//
+//        System.out.println("wwwww");
+//        customers.print();
+//        System.out.println("dddd");
+//        //contactsFromChannelOne.print();
+//        System.out.println("dddd");
+
+        while (true) {
+            System.out.println("Do you want to upload new contacts, create a new marketing list or quit?");
+            System.out.print("> ");
+            String decision = reader.nextLine();
+            if (decision.equalsIgnoreCase("quit") || decision.equalsIgnoreCase("q")) {
+                break;
+            } else if ((decision.equalsIgnoreCase("upload") || decision.equalsIgnoreCase("contacts"))) {
+                while (true) {
+                    System.out.println("What is the name of file you want to upload? \n There is 'koe1.txt' available.");
+                    System.out.print("> ");
+                    String name = reader.nextLine();
+                    if (name.equalsIgnoreCase("break")) {
+                        break;
+                    } else if (name.equalsIgnoreCase("koe1.txt")) {
+                        System.out.println("File is found!...");
+                        FileReader just = new FileReader();
+                        just.read(name);
+                        List contacts = just.getList();
+                        System.out.println("What will be the source or channel (via they were received) of these contacts?");
+                        System.out.print("> ");
+                        String listname = reader.nextLine();
+                        ContactList contactsFromASource = new ContactList(listname);
+                        System.out.println("There is " + just.getNumberOfRows() + " rows of contact data to be put on the list " + contactsFromASource.getNameOfContactList());
+                        //lets add all the given data to our ContactLit
+                        contactsFromASource.addContactToList(contacts);
+                        //next we will clean and classify the contacts within ContactList
+                        contactsFromASource.cleanAndClassify(contacts);
+                        //Lets give state-labels to contacts to make it easer to create and update the customers
+                        for (Integer key : contactsFromASource.keySet()) {
+                            customers.searchAndLabel(key, contactsFromASource);
+                        }
+                        //Lets create and update customers according to the contents of contact list
+                        System.out.println("rrrr");
+                        for (Integer key : contactsFromASource.keySet()) {
+                            customers.createAndUpdate(key, contactsFromASource);
+                        }
+                        break;
+                    } else {
+                        System.out.println("The file is not available. Write the name again or break.");
+                    }
+                }
+            } else if (decision.equalsIgnoreCase("create") || decision.equalsIgnoreCase("marketing list") || decision.equalsIgnoreCase("list")) {
+                System.out.println("Do you want to collect phone numbers or emails?");
+                //Lets create a special Marketing List that will be the basis for a campaign
+                MarketingList spring = new MarketingList("SpringCampaign");
+                //Lets be specific and say we want to use just emails in our spring campaign
+                List<Customer> custolist = customers.getCustomers();
+                while (true) {
+                    System.out.print("> ");
+                    String option = reader.nextLine();
+                    if (option.equalsIgnoreCase("phone numbers") || option.equalsIgnoreCase("numbers")) {
+                        spring.addToCampaign(Type.phone, custolist);
+                        break;
+                    } else if (option.equalsIgnoreCase("emails")) {
+                        spring.addToCampaign(Type.email, custolist);
+                        break;
+                    } else {
+                        System.out.println("Please state 'emails' or 'numbers' or 'phone numbers'");
+                    }
+                }
+                FileWriter writer = new FileWriter();
+                writer.write(spring.getName() + ".txt", spring);
+                System.out.println("How many rows were saved to the " + spring.getName() + " : " + writer.getRowCount());
+                //UI
+                //SwingUtilities.invokeLater(new UserInterface(customers));
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        //Turn off metal's use of bold fonts
+                        UIManager.put("swing.boldMetal", Boolean.FALSE);
+                        new ResultArea(spring).setVisible(true);
+                    }
+                });
+
+            } else {
+                System.out.println("Please state your command clearly");
+            }
+        }
+
+//        //Testing timestamps
+//        Consent alpha = new Consent("112", Type.phone);
+//        try {
+//            Thread.sleep(1000);                 //1000 milliseconds is one second.
+//        } catch (InterruptedException ex) {
+//            Thread.currentThread().interrupt();
+//        }
+//        Consent beta = new Consent("3456", Type.phone);
+//        System.out.println(alpha.getTimestamp().before(beta.getTimestamp()));
+//        System.out.println(alpha.getTimestamp());
+//        alpha.setNewTimestamp();
+//        System.out.println(alpha.getTimestamp());
+//        System.out.println(alpha.getTimestamp().before(beta.getTimestamp()));
+    }
+
+    public static void loadingExistingCustomers(CustomerList customers) {
         customers.addNewCustomer("a4@a4.fi", Type.email, 40);
         customers.addNewCustomer("0507378716", Type.phone, 50);
         customers.addNewCustomer("uc6@uc6.fi", Type.email, 60);
@@ -44,50 +137,5 @@ public class Main {
         customers.updateExistingCustomer(customers.getCustomerInsertId(110), "cuc11@cuc11.com", Type.email);
         customers.addNewCustomer("0403456789", Type.phone, 120);
         customers.updateExistingCustomer(customers.getCustomerInsertId(120), "cuc12cuc@cuc12cuc12.fi", Type.email);
-        System.out.println("ZZZZ");
-        customers.addNewCustomer("0505551234", Type.phone, 130);
-
-        //Lets give state-labels to contacts to make it easer to create and update the customers
-        for (Integer key : contactsFromChannelOne.keySet()) {
-            customers.searchAndLabel(key, contactsFromChannelOne);
-        }
-        //Lets create and update customers according to the contents of contact list
-        System.out.println("rrrr");
-        for (Integer key : contactsFromChannelOne.keySet()) {
-            customers.createAndUpdate(key, contactsFromChannelOne);
-        }
-        System.out.println("wwwww");
-        customers.print();
-        System.out.println("dddd");
-        //contactsFromChannelOne.print();
-        System.out.println("dddd");
-        //Lets create a special Marketing List that will be the basis for a campaign
-        MarketingList spring = new MarketingList("SpringCampaingEmail");
-        //Lets be specific and say we want to use just emails in our spring campaign
-        List<Customer> custolist = customers.getCustomers();
-        spring.addToCampaign(Type.phone, custolist);
-        spring.print();
-
-        //Lets transfer the SpringCampaignEmail-list to a txt
-        FileWriter writer = new FileWriter();
-        writer.write(spring.getName() + ".txt", spring);
-        System.out.println("How many rows were saved to the " + spring.getName() + " : " + writer.getRowCount());
-
-        //UI
-        SwingUtilities.invokeLater(new UserInterface(customers));
-
-        //Testing timestamps
-        Consent alpha = new Consent("112", Type.phone);
-        try {
-            Thread.sleep(1000);                 //1000 milliseconds is one second.
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
-        Consent beta = new Consent("3456", Type.phone);
-        System.out.println(alpha.getTimestamp().before(beta.getTimestamp()));
-        System.out.println(alpha.getTimestamp());
-        alpha.setNewTimestamp();
-        System.out.println(alpha.getTimestamp());
-        System.out.println(alpha.getTimestamp().before(beta.getTimestamp()));
     }
 }
