@@ -141,18 +141,18 @@ public class StateKeeper {
 //        return false;
 //    }
 //
-//    /**
-//     * If the contact info in several rows is identical to the customer info
-//     * then this will be true.
-//     *
-//     * @return is true if the rows are identical to the customers' info
-//     */
-//    public boolean isIdenticalRow() {
-//        for (int i = 0; i < this.labels.length; i++) {
-//            if (this.labels[i] == State.sameEmail || this.labels[i] == State.sameNumber) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+    /**
+     * If the contact info in several rows is identical to the customer info
+     * then this will be true.
+     *
+     * @return is true if the rows are identical to the customers' info
+     */
+    public boolean isIdenticalRow() {
+        for (int i = 0; i < this.labels.length; i++) {
+            if (this.labels[i] == State.sameEmail || this.labels[i] == State.sameNumber) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

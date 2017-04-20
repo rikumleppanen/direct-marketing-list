@@ -97,15 +97,23 @@ public class CustomerListTest {
         assertEquals("a5@a5.fi", customers.getCustomer("0507378716").getEmail());
     }
 
-//    @Test
-//    public void updateAConsentToExistingCustomerTest() {
-//        //Test case 6 (add a new email consent)
-//        assertEquals(2, customers.getCustomer("uc6@uc6.fi").getConsentList(Type.email).size());
-//        //Test case 7 (add a new phone number consent)
-//        //Test case 8 (add both email and phone number consent)
-//        //Test case 9 (add an email address consent to customer who has existing email address and phone number)
-//        //Test case 10 (add a phone number consent to customer who has existing email address and phone number)
-//    }
+    @Test
+    public void updateAConsentToExistingCustomerTest() {
+        //Test case 6 (add a new email consent)
+        assertEquals(2, customers.getCustomer("uc6@uc6.fi").getConsentList(Type.email).size());
+        //Test case 7 (add a new phone number consent)
+        assertEquals(2, customers.getCustomer("070345678").getConsentList(Type.phone).size());
+        //Test case 8 (add both email and phone number consent)
+        assertEquals(2, customers.getCustomer("0812345673").getConsentList(Type.phone).size());
+        assertEquals(2, customers.getCustomer("0812345673").getConsentList(Type.email).size());
+        //Test case 9 (add an email address consent to customer who has existing email address and phone number)
+        assertEquals(1, customers.getCustomer("0912334342").getConsentList(Type.phone).size());
+        assertEquals(2, customers.getCustomer("0912334342").getConsentList(Type.email).size());
+        //Test case 10 (add a phone number consent to customer who has existing email address and phone number)
+        assertEquals(2, customers.getCustomer("102343434").getConsentList(Type.phone).size());
+        assertEquals(1, customers.getCustomer("102343434").getConsentList(Type.email).size());
+    }
+    
     @Test
     public void updateARowToExistingCustomerTest() {
         //Test case 11 (update phone number to the customer who has been matched by email address)

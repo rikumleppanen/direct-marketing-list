@@ -137,8 +137,9 @@ public class CustomerList {
     }
 
     /**
-     * Customers can be created and found by customer number or insertation
-     * number.
+     * Contact data is turned into new customers, updated both information that
+     * was not yet available and updated for consents if the information was
+     * already similar with the customer.
      *
      * @param key is the key of ContactList, each key can have one to many rows
      * of contact data
@@ -149,17 +150,38 @@ public class CustomerList {
         for (int i = 0; i < eye.size(); i++) {
             //System.out.println(eye.getState(i) + " " + eye.getContactRow(i).getRow() + " " + eye.getCustomer());
             if (eye.getCustomer() == null) {
-                int idnum = eye.getContactRow(i).getInsertid();
-                Customer foundCustomer = find(key, list);
-                if (foundCustomer != null) {
-                    updateExistingCustomer(getCustomerInsertId(idnum), eye.getContactRow(i).getRow(), eye.getContactRow(i).getType());
-                } else {
-                    addNewCustomer(eye.getContactRow(i).getRow(), eye.getContactRow(i).getType(), idnum);
-                }
+                //Cases 1, 2, 3, 4, 5
+                addACustomerOrANewRow(key, i, eye, list);
             } else if (eye.getState(i) == State.notFound) {
+                //Cases 11, 12
+                UUID cusno = eye.getCustomer();
+                updateExistingCustomer(getCustomerCusnoId(cusno), eye.getContactRow(i).getRow(), eye.getContactRow(i).getType());
+            } else if (eye.isIdenticalRow() == true) {
+                //Cases 6, 7, 8, 9, 10
                 UUID cusno = eye.getCustomer();
                 updateExistingCustomer(getCustomerCusnoId(cusno), eye.getContactRow(i).getRow(), eye.getContactRow(i).getType());
             }
+        }
+    }
+
+    /**
+     * Customers can be created and found by customer number or insertation
+     * number.
+     *
+     * @param key is the key of ContactList, each key can have one to many rows
+     * of contact data
+     * @param i is the number of row in StateKeeper tables
+     * @param eye is the StateKeeper panel that keeps track of each contact row
+     * and their status
+     * @param list is the ContactList that we are comparing to these customers
+     */
+    public void addACustomerOrANewRow(Integer key, Integer i, StateKeeper eye, ContactList list) {
+        int idnum = eye.getContactRow(i).getInsertid();
+        Customer foundCustomer = find(key, list);
+        if (foundCustomer != null) {
+            updateExistingCustomer(getCustomerInsertId(idnum), eye.getContactRow(i).getRow(), eye.getContactRow(i).getType());
+        } else {
+            addNewCustomer(eye.getContactRow(i).getRow(), eye.getContactRow(i).getType(), idnum);
         }
     }
 
