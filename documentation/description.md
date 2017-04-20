@@ -20,19 +20,19 @@ __Class Diagram__
 
 __Sequence Diagram: Create a New Marketing List__
 
-![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/image1.jpg "Create a New Marketing List")
+![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/image1.JPG "Create a New Marketing List")
 
 __Sequence Diagram: refA1 getMaxConsent__
 
-![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/image2.jpg)
+![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/image2.JPG)
 
 __Sequence Diagram: refA2 getConsentList__
 
-![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/image3.jpg)
+![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/image3.JPG)
 
 __Sequence Diagram: refB1 selectActiveConsents__
 
-![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/image4.jpg)
+![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/image4.JPG)
 
 
 __Users: Random Users who participate for lottery, system and b2c-people__
