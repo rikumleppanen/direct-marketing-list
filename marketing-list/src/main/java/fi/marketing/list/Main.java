@@ -37,14 +37,16 @@ public class Main {
                 break;
             } else if ((decision.equalsIgnoreCase("upload") || decision.equalsIgnoreCase("contacts"))) {
                 while (true) {
-                    System.out.println("What is the name of file you want to upload? \n There is 'koe1.txt' available.");
+                    System.out.println("What is the name of file you want to upload? \n There are 'koe1.txt', 'test1.txt' and 'test2.txt' available.");
                     System.out.print("> ");
                     String name = reader.nextLine();
                     if (name.equalsIgnoreCase("break")) {
                         break;
-                    } else if (name.equalsIgnoreCase("koe1.txt")) {
-                        System.out.println("File is found!...");
+                    } else if (name.equalsIgnoreCase("koe1.txt") || name.equalsIgnoreCase("test2.txt") || name.equalsIgnoreCase("test1.txt")) {
+                        System.out.println("File is found!");
+
                         FileReader just = new FileReader();
+
                         just.read(name);
                         List contacts = just.getList();
                         System.out.println("What will be the source or channel (via they were received) of these contacts?");
@@ -53,6 +55,7 @@ public class Main {
                         ContactList contactsFromASource = new ContactList(listname);
                         System.out.println("There is " + just.getNumberOfRows() + " rows of contact data to be put on the list " + contactsFromASource.getNameOfContactList());
                         //lets add all the given data to our ContactLit
+                        long startTime = System.currentTimeMillis();
                         contactsFromASource.addContactToList(contacts);
                         //next we will clean and classify the contacts within ContactList
                         contactsFromASource.cleanAndClassify(contacts);
@@ -64,6 +67,12 @@ public class Main {
                         System.out.println("rrrr");
                         for (Integer key : contactsFromASource.keySet()) {
                             customers.createAndUpdate(key, contactsFromASource);
+                        }
+                        long endTime = System.currentTimeMillis();
+                        if (endTime - startTime <= 1000) {
+                            System.out.println("The cleaning and matching process took " + (endTime - startTime) + " milliseconds");
+                        } else {
+                            System.out.println("The cleaning and matching process took " + (endTime - startTime) / 1000 + " seconds");
                         }
                         break;
                     } else {
