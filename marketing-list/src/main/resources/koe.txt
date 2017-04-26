@@ -1,0 +1,17 @@
+vihmoa@rajusti.fi|34
+09345678|54
+014654567|1
+050-5435673|2
++358-401234567|3
+test@sahkoposti.fi|3
+test@mailinator.com|4
+0402202|4
+091234|10
+riku@riku.fi|10
+arto@arto.fi|5
++358-50-456 1234|6
+(358)-0400 123 4567|7
+358401234567|8
+0407378716|9
+riku@rikunauski.fi|9
+salainen@taukopaja.fi|11

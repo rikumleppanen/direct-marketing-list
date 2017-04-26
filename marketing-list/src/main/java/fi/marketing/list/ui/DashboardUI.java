@@ -7,6 +7,10 @@ package fi.marketing.list.ui;
 
 import fi.marketing.list.Operator;
 import fi.marketing.list.logic.lists.MarketingList;
+import java.io.File;
+import fi.marketing.list.FileReader;
+import java.io.InputStream;
+import java.util.Scanner;
 
 public class DashboardUI extends javax.swing.JFrame {
 
@@ -167,8 +171,10 @@ public class DashboardUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (evt.getSource() == jButton1 && jTextField3.getText().endsWith(".txt")) {
+            InputStream is = getClass().getClassLoader().getResourceAsStream(jTextField3.getText());
+            FileReader just = oper.fileReaderInputStream(is);
             long startTime = System.currentTimeMillis();
-            oper.matchAContactListToCustomers(jTextField3.getText(), jTextField1.getText());
+            oper.matchAContactListToCustomers(just, jTextField1.getText());
             long endTime = System.currentTimeMillis();
             jTextArea1.setText(oper.printTime(startTime, endTime) + "\n" + "There is " + oper.getContactCountNumber() + " rows of contact data to be put on the list " + jTextField1.getText() + ".");
             jTextArea4.setText("There are " + oper.getCustomers().numberOfCustomers() + " customers in the system. \n Emails: " + oper.getCustomers().getNumberOfEmails() + "\n Phone numbers: " + oper.getCustomers().getNumberOfPhoneNumbers());

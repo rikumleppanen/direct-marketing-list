@@ -3,6 +3,7 @@ package fi.marketing.list;
 import fi.marketing.list.logic.Contact;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -43,6 +44,18 @@ public class FileReader {
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void readInputStream(InputStream is) {
+        try (Scanner reader = new Scanner(is)) {
+            while (reader.hasNextLine()) {
+                String row = reader.nextLine();
+                String[] items = row.split("\\|");
+                int id = Integer.valueOf(items[1]);
+                list.add(new Contact(items[0], id));
+                countRows++;
+            }
         }
     }
 

@@ -5,6 +5,8 @@ import fi.marketing.list.logic.Type;
 import fi.marketing.list.logic.lists.ContactList;
 import fi.marketing.list.logic.lists.CustomerList;
 import fi.marketing.list.logic.lists.MarketingList;
+import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 
 public class Operator {
@@ -39,23 +41,37 @@ public class Operator {
         return this.customers;
     }
 
-    public void matchAContactListToCustomers(String filename, String listname) {
-        FileReader just = new FileReader();
-        just.read(filename);
+    public void matchAContactListToCustomers(FileReader just, String listname) {
         List contacts = just.getList();
         setContactCountNumber(just.getNumberOfRows());
         ContactList contactsFromASource = new ContactList(listname);
-        //lets add all the given data to our ContactLit
         contactsFromASource.addContactToList(contacts);
-        //next we will clean and classify the contacts within ContactList
         contactsFromASource.cleanAndClassify(contacts);
-        //Lets give state-labels to contacts to make it easer to create and update the customers
-        for (Integer key : contactsFromASource.keySet()) {
-            customers.searchAndLabel(key, contactsFromASource);
+        labelingContacts(contactsFromASource);
+        transferringContactsIntoCustomers(contactsFromASource);
+    }
+
+    public FileReader fileReader(String filename) {
+        FileReader one = new FileReader();
+        one.read(filename);
+        return one;
+    }
+
+    public FileReader fileReaderInputStream(InputStream is) {
+        FileReader one = new FileReader();
+        one.readInputStream(is);
+        return one;
+    }
+
+    public void labelingContacts(ContactList one) {
+        for (Integer key : one.keySet()) {
+            customers.searchAndLabel(key, one);
         }
-        //Lets create and update customers according to the contents of contact list
-        for (Integer key : contactsFromASource.keySet()) {
-            customers.createAndUpdate(key, contactsFromASource);
+    }
+
+    public void transferringContactsIntoCustomers(ContactList one) {
+        for (Integer key : one.keySet()) {
+            customers.createAndUpdate(key, one);
         }
     }
 
@@ -70,9 +86,8 @@ public class Operator {
     }
 
     public MarketingList createAMarketingList(String filename, String listname, Type type) {
-
         MarketingList spring = new MarketingList(listname);
-        //Lets be specific and say we want to use just emails in our spring campaign
+
         List<Customer> custolist = customers.getCustomers();
 
         if (type == Type.phone) {
@@ -85,17 +100,6 @@ public class Operator {
         writer.write(spring.getName() + ".txt", spring);
         setWrittenCount(writer.getRowCount());
         return spring;
-        //System.out.println("How many rows were saved to the " + spring.getName() + " : " + writer.getRowCount());
-        //UI
-        //SwingUtilities.invokeLater(new UserInterface(customers));
-//                        SwingUtilities.invokeLater(new Runnable() {
-//                            public void run() {
-//                                //Turn off metal's use of bold fonts
-//                                UIManager.put("swing.boldMetal", Boolean.FALSE);
-//                                new ResultArea(spring).setVisible(true);
-//                            }
-//                        });
-//                        break;
     }
 
 }
