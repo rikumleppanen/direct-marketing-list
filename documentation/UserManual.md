@@ -1,4 +1,4 @@
-User Manual __First Edition 26th of April 2017__
+__User Manual__ (First Edition 26th of April 2017)
 
 The software is designed for matching new contact data with the existing customer base.
 
