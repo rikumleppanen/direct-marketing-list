@@ -24,7 +24,7 @@ Lists of emails and phone numbers are uploaded to the system so that each email 
 
 __Contacts__ from a certain file or channel are collected under single __ContactList__ so as to know where the contact row has been obtained. Before matching contacts with the existing customers, the contacts are parsed and labeled by __Type__ (whether the contact row is email, phone number or unknown).
 
-When comparing the contacts with the existing customers, each contact row is labeled by __State__ (whether the contact row found from the existing customers or not). 
+When comparing the contacts with the existing customers from the __CustomerList__, each contact row is labeled by __State__ (whether the contact row found from the existing customers or not). 
 
 A special __StateKeeper__ collects contact row, Type and State info in a single object so as to add and update customers with the fresh contact data. Finally, the marketing lists can be obtained form the customers who have given an email or phone number consent or both and active consents downloaded from the system for marketing purposes.
 
