@@ -7,3 +7,5 @@ As the customer base is up to date, a marketing person can create marketing list
 By giving a name to a new contact list marketing people can know exactly where and when the contact was acquired.
 
 By giving a name to a new marketing list marketing people can know exactly where and when the consents were used in marketing campaigns.
+
+The user does not need to worry about the parsing of data or the fact that a same contact might be obtained from several times - thus a worry about duplicates, since the system can handle these variations in case of phone numbers and email addresses.
