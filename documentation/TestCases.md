@@ -1,8 +1,11 @@
-# Test cases to ensure customer cards avoid generating duplicates
+# Test cases 
+
+__to ensure customer cards avoid generating duplicates__
 
 A is a single contact row in a contact list
 
 B is a contact with two rows in a contact list
+
 
 __Cases where a new customer is created, since there is no match in the customer list__
 
