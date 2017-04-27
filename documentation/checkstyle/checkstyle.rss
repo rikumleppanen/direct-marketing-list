@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 16,
+      <title>File: 14,
              Errors: 2,
              Warnings: 0,
              Infos: 0
@@ -44,20 +44,6 @@ under the License.
             </tr>
           </thead>
           <tbody>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.marketing.list.ui.ResultArea.java">fi/marketing/list/ui/ResultArea.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.StateKeeper.java">fi/marketing/list/logic/StateKeeper.java</a>
@@ -102,34 +88,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.marketing.list.ui.UserInterface.java">fi/marketing/list/ui/UserInterface.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.marketing.list.ui.DashboardListener.java">fi/marketing/list/ui/DashboardListener.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.Consent.java">fi/marketing/list/logic/Consent.java</a>
                 </td>
                 <td>
@@ -159,6 +117,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.lists.MarketingList.java">fi/marketing/list/logic/lists/MarketingList.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.Operator.java">fi/marketing/list/Operator.java</a>
                 </td>
                 <td>
                   0
@@ -228,6 +200,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.ui.DashboardUI.java">fi/marketing/list/ui/DashboardUI.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#fi.marketing.list.FileWriter.java">fi/marketing/list/FileWriter.java</a>
                 </td>
                 <td>
@@ -252,20 +238,6 @@ under the License.
                 </td>
                 <td>
                   1
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.marketing.list.ui.ColorPanel.java">fi/marketing/list/ui/ColorPanel.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
                 </td>
               </tr>
                       </tbody>

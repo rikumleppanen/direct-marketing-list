@@ -7,23 +7,22 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * CustomerList Class keeps record of the individual customers. There might be
- * several customer lists for instance if there are organization- or
- * product-wide customer lists.
+ * CustomerList Class keeps record of the list of customers.
  */
 public class CustomerList {
 
     private final List<Customer> custolist;
 
     /**
-     * There can be several CustomerLists for each marketing product here.
+     * There might be several CustomerLists for each marketing product here.
      */
     public CustomerList() {
         this.custolist = new ArrayList<>();
     }
 
     /**
-     * Customers can be generated with the method Customer().
+     * If a contact (with just an email or phone number as well) is not matched
+     * by any other customer, then a new customer is created.
      *
      * @param row is the contact row i.e. email or phone number
      * @param type is the type of contact row so as to know whether the row is

@@ -7,10 +7,8 @@ package fi.marketing.list.ui;
 
 import fi.marketing.list.Operator;
 import fi.marketing.list.logic.lists.MarketingList;
-import java.io.File;
 import fi.marketing.list.FileReader;
 import java.io.InputStream;
-import java.util.Scanner;
 
 public class DashboardUI extends javax.swing.JFrame {
 
@@ -32,76 +30,61 @@ public class DashboardUI extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        contactListName = new javax.swing.JTextField();
+        nameNewMarketingList = new javax.swing.JTextField();
+        addContactListButton = new javax.swing.JButton();
+        createMarketingListButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        infoArea1 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        infoArea2 = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField3 = new javax.swing.JTextField();
+        resultArea = new javax.swing.JTextArea();
+        selectType = new javax.swing.JComboBox<>();
+        fileName = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
+        infoAreaStatistics = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dashboard");
 
-        jTextField1.setText("Give a name to new Contact List");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        contactListName.setText("Give a name to new Contact List");
+
+        nameNewMarketingList.setText("Give a name to new Marketing List");
+
+        addContactListButton.setText("Add");
+        addContactListButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                addContactListButtonActionPerformed(evt);
             }
         });
 
-        jTextField2.setText("Give a name to new Marketing List");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        createMarketingListButton.setText("Create");
+        createMarketingListButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                createMarketingListButtonActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Add");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        infoArea1.setColumns(20);
+        infoArea1.setRows(5);
+        jScrollPane1.setViewportView(infoArea1);
 
-        jButton2.setText("Create");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        infoArea2.setColumns(20);
+        infoArea2.setRows(5);
+        jScrollPane2.setViewportView(infoArea2);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        resultArea.setColumns(20);
+        resultArea.setRows(5);
+        jScrollPane3.setViewportView(resultArea);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        selectType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Collect Phone Numbers", "Collect Email Addresses" }));
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
+        fileName.setText("Type the File Name");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Collect Phone Numbers", "Collect Email Addresses" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
-        jTextField3.setText("Type the File Name");
-
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane4.setViewportView(jTextArea4);
+        infoAreaStatistics.setColumns(20);
+        infoAreaStatistics.setRows(5);
+        jScrollPane4.setViewportView(infoAreaStatistics);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,46 +93,46 @@ public class DashboardUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fileName, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(selectType, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton2))
+                                    .addComponent(createMarketingListButton))
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(nameNewMarketingList, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(contactListName, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(addContactListButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fileName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(addContactListButton)
+                            .addComponent(contactListName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addComponent(nameNewMarketingList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2))
+                            .addComponent(selectType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(createMarketingListButton))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(63, 63, 63))
@@ -161,61 +144,50 @@ public class DashboardUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (evt.getSource() == jButton1 && jTextField3.getText().endsWith(".txt")) {
-            InputStream is = getClass().getClassLoader().getResourceAsStream(jTextField3.getText());
+    private void addContactListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addContactListButtonActionPerformed
+        if (evt.getSource() == addContactListButton && fileName.getText().endsWith(".txt")) {
+            InputStream is = getClass().getClassLoader().getResourceAsStream(fileName.getText());
             FileReader just = oper.fileReaderInputStream(is);
             long startTime = System.currentTimeMillis();
-            oper.matchAContactListToCustomers(just, jTextField1.getText());
+            oper.matchAContactListToCustomers(just, contactListName.getText());
             long endTime = System.currentTimeMillis();
-            jTextArea1.setText(oper.printTime(startTime, endTime) + "\n" + "There is " + oper.getContactCountNumber() + " rows of contact data to be put on the list " + jTextField1.getText() + ".");
-            jTextArea4.setText("There are " + oper.getCustomers().numberOfCustomers() + " customers in the system. \n Emails: " + oper.getCustomers().getNumberOfEmails() + "\n Phone numbers: " + oper.getCustomers().getNumberOfPhoneNumbers());
+            infoArea1.setText(oper.printTime(startTime, endTime) + "\n" + "There is " + oper.getContactCountNumber() + " rows of contact data to be put on the list " + contactListName.getText() + ".");
+            infoAreaStatistics.setText("There are " + oper.getCustomers().numberOfCustomers() + " customers in the system. \n Emails: " + oper.getCustomers().getNumberOfEmails() + "\n Phone numbers: " + oper.getCustomers().getNumberOfPhoneNumbers());
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_addContactListButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if (evt.getSource() == jButton2) {
-            if (jComboBox1.getSelectedIndex() == 0) {
-                MarketingList list = oper.createAMarketingList(jTextField2.getText() + "txt", jTextField2.getText(), fi.marketing.list.logic.Type.phone);
-                jTextArea2.setText(oper.getWrittenCount() + " rows were saved to the " + jTextField2.getText() + ".txt file.");
-                jTextArea3.setText(list.printString());
-            } else if (jComboBox1.getSelectedIndex() == 1) {
-                MarketingList list = oper.createAMarketingList(jTextField2.getText() + "txt", jTextField2.getText(), fi.marketing.list.logic.Type.email);
-                jTextArea2.setText(oper.getWrittenCount() + " rows were saved to the " + jTextField2.getText() + ".txt file.");
-                jTextArea3.setText(list.printString());
+    private void createMarketingListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createMarketingListButtonActionPerformed
+        if (evt.getSource() == createMarketingListButton) {
+            if (selectType.getSelectedIndex() == 0) {
+                setTextAndType(infoArea2, resultArea, fi.marketing.list.logic.Type.phone);
+            } else if (selectType.getSelectedIndex() == 1) {
+                setTextAndType(infoArea2, resultArea, fi.marketing.list.logic.Type.email);
             }
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_createMarketingListButtonActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
+    private void setTextAndType(javax.swing.JTextArea two, javax.swing.JTextArea three, fi.marketing.list.logic.Type tp) {
+        MarketingList list = oper.createAMarketingList(nameNewMarketingList.getText(), tp);
+        two.setText(oper.getWrittenCount() + " rows were saved to the " + nameNewMarketingList.getText() + ".txt file.");
+        three.setText(list.printString());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addContactListButton;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JTextField contactListName;
+    private javax.swing.JButton createMarketingListButton;
+    private javax.swing.JTextField fileName;
+    private javax.swing.JTextArea infoArea1;
+    private javax.swing.JTextArea infoArea2;
+    private javax.swing.JTextArea infoAreaStatistics;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField nameNewMarketingList;
+    private javax.swing.JTextArea resultArea;
+    private javax.swing.JComboBox<String> selectType;
     // End of variables declaration//GEN-END:variables
 }

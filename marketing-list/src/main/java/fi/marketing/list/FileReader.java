@@ -47,8 +47,13 @@ public class FileReader {
         }
     }
 
+    /**
+     * Method reads each row of a file and adds contacts from the InputStream.
+     *
+     * @param is is the InputStream
+     */
     public void readInputStream(InputStream is) {
-        try (Scanner reader = new Scanner(is)) {
+        try (Scanner reader = new Scanner(is, "UTF-8")) {
             while (reader.hasNextLine()) {
                 String row = reader.nextLine();
                 String[] items = row.split("\\|");
@@ -56,6 +61,7 @@ public class FileReader {
                 list.add(new Contact(items[0], id));
                 countRows++;
             }
+        } catch (Exception e) {
         }
     }
 
