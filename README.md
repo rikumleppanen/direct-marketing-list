@@ -6,6 +6,8 @@ __Summary:__ The purpose of my project is to generate a direct marketing list(s)
 
 [Description](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/description.md)
 
+[Test Cases](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/TestCases.md)
+
 [Records of Working Hours](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/recordsofWorkingHours.md)
 
 [Pit Report](https://htmlpreview.github.io/?https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/pit-report/201704271019/index.html)
