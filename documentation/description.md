@@ -16,7 +16,7 @@ To limit my case further I focus on private customers who have given their email
 
 __Class Diagram__
 
-![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/Class%20DiagramUpD2.png "Class Diagram (Updated #2")
+![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/Class%20DiagramUpD3.png "Class Diagram (Updated #2")
 
 __Structure of the Software__
 
