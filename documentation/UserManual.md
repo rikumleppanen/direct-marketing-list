@@ -1,4 +1,4 @@
-__User Manual__ (First Edition 26th of April 2017)
+__User Manual__ (First Released Edition (v1.0) - 3rd of May 2017)
 
 The software is designed for matching new contact data with the existing customer base. As a test case you can type koe1.txt, test1.txt or test2.txt to upload a test data sets.
 
