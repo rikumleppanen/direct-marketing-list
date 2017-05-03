@@ -4,6 +4,8 @@ __Summary:__ The purpose of my project is to generate a direct marketing list(s)
 
 ## Documentation
 
+[User Manual](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/UserManual.md)
+
 [Description](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/description.md)
 
 [Test Cases](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/TestCases.md)
