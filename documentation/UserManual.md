@@ -1,6 +1,6 @@
 __User Manual__ (First Edition 26th of April 2017)
 
-The software is designed for matching new contact data with the existing customer base.
+The software is designed for matching new contact data with the existing customer base. As a test case you can type koe1.txt, test1.txt or test2.txt to upload a test data sets.
 
 As the customer base is up to date, a marketing person can create marketing lists by choosing email addresses or phone numbers to be download from the system.
 
