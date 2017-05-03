@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.marketing.list.FileReader.java">fi/marketing/list/FileReader.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.FileWriter.java">fi/marketing/list/logic/FileWriter.java</a>
                 </td>
                 <td>
                   0
@@ -75,6 +75,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.State.java">fi/marketing/list/logic/State.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.marketing.list.logic.FileReader.java">fi/marketing/list/logic/FileReader.java</a>
                 </td>
                 <td>
                   0
@@ -201,20 +215,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.marketing.list.ui.DashboardUI.java">fi/marketing/list/ui/DashboardUI.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#fi.marketing.list.FileWriter.java">fi/marketing/list/FileWriter.java</a>
                 </td>
                 <td>
                   0

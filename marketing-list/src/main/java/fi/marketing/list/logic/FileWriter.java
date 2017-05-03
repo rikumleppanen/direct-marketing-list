@@ -1,5 +1,6 @@
-package fi.marketing.list;
+package fi.marketing.list.logic;
 
+import fi.marketing.list.Main;
 import fi.marketing.list.logic.Consent;
 import fi.marketing.list.logic.lists.MarketingList;
 import java.io.File;

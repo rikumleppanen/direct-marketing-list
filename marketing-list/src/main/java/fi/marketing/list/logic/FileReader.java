@@ -1,5 +1,6 @@
-package fi.marketing.list;
+package fi.marketing.list.logic;
 
+import fi.marketing.list.Main;
 import fi.marketing.list.logic.Contact;
 import java.io.File;
 import java.io.FileNotFoundException;

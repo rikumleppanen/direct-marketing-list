@@ -7,7 +7,7 @@ package fi.marketing.list.ui;
 
 import fi.marketing.list.Operator;
 import fi.marketing.list.logic.lists.MarketingList;
-import fi.marketing.list.FileReader;
+import fi.marketing.list.logic.FileReader;
 import java.io.InputStream;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;

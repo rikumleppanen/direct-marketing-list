@@ -1,12 +1,11 @@
-package fi.marketing.list;
+package fi.marketing.list.logic;
 
-import java.io.File;
+import fi.marketing.list.logic.FileReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -31,10 +30,13 @@ public class FileReaderTest {
     }
 
     @Test
-    public void readingFile() {
+    public void readingFile() throws FileNotFoundException {
         one.read("koe.txt");
         assertEquals(17, one.getNumberOfRows());
         assertEquals(0, two.getNumberOfRows());
+        InputStream inp = new FileInputStream("koe1.txt");
+        two.readInputStream(inp);
+        assertEquals(18, two.getNumberOfRows());
     }
 
     @Test

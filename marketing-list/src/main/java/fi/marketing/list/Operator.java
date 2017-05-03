@@ -1,5 +1,7 @@
 package fi.marketing.list;
 
+import fi.marketing.list.logic.FileWriter;
+import fi.marketing.list.logic.FileReader;
 import fi.marketing.list.logic.Customer;
 import fi.marketing.list.logic.Type;
 import fi.marketing.list.logic.lists.ContactList;

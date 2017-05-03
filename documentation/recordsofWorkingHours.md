@@ -25,4 +25,5 @@ Day | Hours | Description
 20.4.2017 | 7h | Coded more, added a ResultArea to UI and made extensive changes in Main Class
 25.4.2017 | 9h | Added a new User Interface
 27.4.2017 | 6h | Modifications and report generation before DL6
+3.5.2017 | 3h | Final changes and release of the First Edition
 ... | ... | ...
