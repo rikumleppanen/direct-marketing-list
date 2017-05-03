@@ -16,7 +16,7 @@ To limit my case further I focus on private customers who have given their email
 
 __Class Diagram__
 
-![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/Class%20DiagramUpD1.png "Class Diagram (Updated #1")
+![Alt text](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/Class%20DiagramUpD2.png "Class Diagram (Updated #2")
 
 __Structure of the Software__
 
@@ -27,6 +27,8 @@ __Contacts__ from a certain file or channel are collected under single __Contact
 When comparing the contacts with the existing customers from the __CustomerList__, each contact row is labeled by __State__ (whether the contact row found from the existing customers or not). 
 
 A special __StateKeeper__ collects contact row, Type and State info in a single object so as to add and update customers with the fresh contact data. Finally, the marketing lists can be obtained form the customers who have given an email or phone number consent or both and active consents downloaded from the system for marketing purposes.
+
+An __Operator__ is a medium between DashBoardUI and CustomerList. Operator contains all the methods required in the DashBoardUI.
 
 __Sequence Diagram: Create a New Marketing List__
 
