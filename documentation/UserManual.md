@@ -9,3 +9,5 @@ By giving a name to a new contact list marketing people can know exactly where a
 By giving a name to a new marketing list marketing people can know exactly where and when the consents were used in marketing campaigns.
 
 The user does not need to worry about the parsing of data or the fact that the same contact might be obtained from several sources or uploaded files - thus, a concern about duplicates, since the system can handle these variations in case of phone numbers and email addresses.
+
+A link to the [README.md](https://github.com/rikumleppanen/direct-marketing-list/blob/master/README.md)
