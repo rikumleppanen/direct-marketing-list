@@ -2,6 +2,8 @@
 
 __Summary:__ The purpose of my project is to generate a direct marketing list(s) of contacts who have given an active marketing consent to participate in marketing campaigns. If the customer gives an email address he or she allows emails to be sent during the next two years. There are email, phone, text message and direct home address consents which may have each their own lifespan. 
 
+Notice: There are two errors in CheckStyle Report due to the length limit of (200 rows) per class. For this case the limit is exceeded primarily due to JavaDoc.
+
 ## Documentation
 
 [User Manual](https://github.com/rikumleppanen/direct-marketing-list/blob/master/documentation/UserManual.md)
